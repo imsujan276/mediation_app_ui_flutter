@@ -12,7 +12,12 @@ import 'package:meditation/app/widgets/text/normal_widget.dart';
 
 import '../controllers/topic_controller.dart';
 
-class TopicView extends GetView<TopicController> {
+class TopicView extends StatefulWidget {
+  @override
+  _TopicViewState createState() => _TopicViewState();
+}
+
+class _TopicViewState extends State<TopicView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,19 +51,28 @@ class TopicView extends GetView<TopicController> {
               itemCount: topics.length,
               itemBuilder: (BuildContext context, int index) => new Container(
                   color: topics[index].color,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        topics[index].image,
-                        fit: BoxFit.fitHeight,
-                      ),
-                      NormalText(
-                        topics[index].text,
-                        color: controller.numCount(index)
-                            ? AppColors.WHITE
-                            : AppColors.textColor,
-                      )
-                    ],
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(Constants.defaultRadus)),
+                    padding: const EdgeInsets.all(Constants.defaultPadding),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Image.asset(
+                            topics[index].image,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                        NormalText(
+                          topics[index].text,
+                          color: topics[index].code == 0
+                              ? AppColors.WHITE
+                              : AppColors.textColor,
+                        )
+                      ],
+                    ),
                   )),
               staggeredTileBuilder: (int index) =>
                   new StaggeredTile.count(2, index.isEven ? 2 : 2.3),

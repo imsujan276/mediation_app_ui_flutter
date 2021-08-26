@@ -8,6 +8,7 @@ import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/modules/signin/views/signin_view.dart';
 import 'package:meditation/app/modules/signin/widget/height_widget.dart';
+import 'package:meditation/app/modules/signup/views/signup_view.dart';
 import 'package:meditation/app/modules/splash/widget/logo_header_with_text.dart';
 import 'package:meditation/app/widgets/button/button_widget.dart';
 import 'package:meditation/app/widgets/clipper/clipper_widget.dart';
@@ -95,7 +96,9 @@ class Body extends StatelessWidget {
                     ),
                     CustomRoundButton(
                       label: Strings.signup.toUpperCase(),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(SignupView());
+                      },
                       // backgroundColor: Theme.of(context).primaryColor,
                       // textColor: AppColors.WHITE,
                     ),

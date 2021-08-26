@@ -57,7 +57,9 @@ class SigninView extends GetView<SigninController> {
                   height: appService.sheight * .06,
                   child: CustomRoundButton(
                     label: Strings.signin.toUpperCase(),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(SigninView());
+                    },
                   ),
                 ),
                 HeightWidget(

@@ -7,6 +7,7 @@ import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/modules/signin/widget/height_widget.dart';
 import 'package:meditation/app/modules/splash/widget/logo_header_with_text.dart';
+import 'package:meditation/app/modules/topic/bindings/topic_binding.dart';
 import 'package:meditation/app/modules/topic/views/topic_view.dart';
 import 'package:meditation/app/widgets/button/button_widget.dart';
 import 'package:meditation/app/widgets/text/header_widget.dart';
@@ -43,7 +44,7 @@ class WelcomeView extends GetView<WelcomeController> {
                 child: CustomRoundButton(
                   label: Strings.getstarted.toUpperCase(),
                   onPressed: () {
-                    Get.to(() => TopicView());
+                    Get.to(() => TopicView(), binding: TopicBinding());
                   },
                   backgroundColor: AppColors.WHITE,
                   textColor: AppColors.textColor,
