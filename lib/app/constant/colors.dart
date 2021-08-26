@@ -75,6 +75,7 @@ in medication v2 bg of stripe
   static const Color WHITE = Color(0xFFFFFFFF);
   static const Color BLACK = Color(0xFF000000);
   static const Color GREY = Color(0xFF9F9F9F);
+  static const Color GREEN = Colors.green;
   static const Color GREY50 = Color(0xFFFAFAFA);
   static const Color RED = Color(0xFFFF0000);
   static Color textColor = HexColor("#3F414E");
@@ -83,6 +84,14 @@ in medication v2 bg of stripe
   static Color buttonBackgroundColor = HexColor("#8E97FD");
   static Color fbbackgroundColor = HexColor("#7583CA");
   static Color backgroundofWaveClipPath = HexColor("#FAF8F5");
+  static Color welcomebackgroundColor = HexColor("#8C96FF");
+
+  static Color reduceStressbackground = HexColor("#AEB4FC");
+  static Color improvePerformance = HexColor("#FA6E5A");
+  static Color increasehappyness = HexColor("#FEB18F");
+  static Color reduceAxienty = HexColor('#FFCF86');
+  static Color softgreen = HexColor("#6CB28E");
+  static Color softpurpal = HexColor("#D9A5B5");
 
   static hexcolor1() {
     return getColorFromHex(_color1);

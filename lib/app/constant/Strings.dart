@@ -14,5 +14,16 @@ class Strings {
   static const String orloginwithemail = 'or login with email';
   static const String email = 'Email Address';
   static const String password = 'Password';
+  static const String username = "Username";
   static const String forgetpassword = 'Forget Password?';
+  static const String createAccount = 'Create your account';
+  static const String ihaveread = 'I have read the';
+  static const String getstarted = 'Get Started';
+  static const String privacypolicy = 'Privacy Policy';
+  static const String welcomeGreet = "Hi Asfar, Welcome";
+  static const String toSlinemood = 'to Slient Mood';
+  static const String prepareMeditationMessage =
+      'Explore the app, Find some peace of mind to prepare for meditation.';
+  static const String whatbringyou = "What Bring You";
+  static const String chooseandfocus = "Choose a topic to focus on:";
 }

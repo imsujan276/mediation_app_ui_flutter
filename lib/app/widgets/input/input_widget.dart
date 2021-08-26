@@ -14,6 +14,8 @@ class InputField extends StatefulWidget {
       this.onFieldSubmitted,
       this.onChanged,
       this.controller,
+      this.suffix,
+      this.iconColor,
       this.autovalidateMode = AutovalidateMode.onUserInteraction,
       this.borderRadius = 0,
       this.color = Colors.transparent});
@@ -23,6 +25,7 @@ class InputField extends StatefulWidget {
   final TextInputType textInputType;
   final bool obscureText;
   final validator;
+  final IconData? suffix;
   final ValueChanged<String>? onFieldSubmitted;
   final ValueChanged<String>? onChanged;
   final String? label;
@@ -30,6 +33,7 @@ class InputField extends StatefulWidget {
   final autovalidateMode;
   final double borderRadius;
   final Color color;
+  final Color? iconColor;
 
   @override
   _InputFieldState createState() => _InputFieldState();
@@ -38,6 +42,7 @@ class InputField extends StatefulWidget {
 class _InputFieldState extends State<InputField> {
   ///toggle status for passsword eye
   bool showPassword = false;
+  bool checkdata = true;
 
   /// toggle status for password field
   bool shownPassword = false;
@@ -96,14 +101,20 @@ class _InputFieldState extends State<InputField> {
               ? IconButton(
                   onPressed: () => togglePassword(),
                   icon: Icon(
-                    showPassword
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
-                    color: AppColors.GREY,
-                  ),
+                      showPassword
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                      color: widget.iconColor == null
+                          ? AppColors.GREY
+                          : widget.iconColor),
                   splashRadius: 0.1,
                 )
-              : null,
+              : widget.suffix != null
+                  ? Icon(checkdata ? widget.suffix : Icons.close,
+                      color: widget.iconColor == null
+                          ? AppColors.RED
+                          : widget.iconColor)
+                  : null,
         ),
         validator: widget.validator ?? null,
         onFieldSubmitted: widget.onFieldSubmitted ?? null,

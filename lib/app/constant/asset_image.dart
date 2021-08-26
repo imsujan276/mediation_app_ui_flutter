@@ -14,7 +14,7 @@ class AppImage {
   static const relaxation = 'assets/image/ladyinglaugh.png';
   static const ladyonChair = 'assets/image/ladyonchair.png';
   static const manMeditation = 'assets/image/manmediation.png';
-  static const welcome = 'assets/image/meditation_bg.png';
+  static const welcome_medition_bg = 'assets/image/meditation_bg.png';
   static const meditationpose = 'assets/image/meditationpose.png';
   static const mountainClimb = 'assets/image/mountainclimb.png';
   static const nightCloud = 'assets/image/night_cloud.png';

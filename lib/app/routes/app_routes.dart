@@ -7,10 +7,16 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const SPLASH = _Paths.SPLASH;
   static const SIGNIN = _Paths.SIGNIN;
+  static const SIGNUP = _Paths.SIGNUP;
+  static const WELCOME = _Paths.WELCOME;
+  static const TOPIC = _Paths.TOPIC;
 }
 
 abstract class _Paths {
   static const HOME = '/home';
   static const SPLASH = '/splash';
   static const SIGNIN = '/signin';
+  static const SIGNUP = '/signup';
+  static const WELCOME = '/welcome';
+  static const TOPIC = '/topic';
 }

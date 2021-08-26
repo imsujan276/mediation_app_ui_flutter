@@ -6,6 +6,9 @@ import 'package:meditation/app/constant/asset_image.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
+import 'package:meditation/app/modules/signin/widget/height_widget.dart';
+import 'package:meditation/app/modules/signin/widget/sign_in_up_widget.dart';
+import 'package:meditation/app/modules/signup/views/signup_view.dart';
 import 'package:meditation/app/widgets/button/button_widget.dart';
 import 'package:meditation/app/widgets/button/custome_button.dart';
 import 'package:meditation/app/widgets/input/input_widget.dart';
@@ -26,103 +29,56 @@ class SigninView extends GetView<SigninController> {
           padding: const EdgeInsets.symmetric(
               horizontal: Constants.defaultPadding,
               vertical: Constants.defaultPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: appService.sheight * .029,
-              ),
-              Expanded(
-                flex: 2,
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: CircleAvatar(
-                    radius: Constants.defaultRadus,
-                    backgroundColor: AppColors.borderColor,
-                    child: CircleAvatar(
-                      radius: Constants.defaultRadus - 3,
-                      backgroundColor: AppColors.WHITE,
-                      child: BackButton(),
-                    ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SignInSignUpTopWidget(
+                  title: Strings.welcomeBack,
+                ),
+
+                InputField(
+                  borderRadius: Constants.defaultRadus / 2,
+                  color: Theme.of(context).accentColor,
+                  hintText: Strings.email,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                InputField(
+                  borderRadius: Constants.defaultRadus / 2,
+                  color: Theme.of(context).primaryColor,
+                  obscureText: true,
+                  textInputType: TextInputType.visiblePassword,
+                  hintText: Strings.password,
+                ),
+                HeightWidget(
+                  h: .039,
+                ),
+                SizedBox(
+                  height: appService.sheight * .06,
+                  child: CustomRoundButton(
+                    label: Strings.signin.toUpperCase(),
+                    onPressed: () {},
                   ),
                 ),
-              ),
-              SizedBox(
-                height: appService.sheight * .039,
-              ),
-              Expanded(
-                flex: 2,
-                child: HeaderText(
-                  Strings.welcomeBack,
-                  isBold: true,
-                  isCentered: true,
+                HeightWidget(
+                  h: .01,
                 ),
-              ),
-              Expanded(
-                flex: 2,
-                child: ButtonWithImage(
-                  Strings.continuewithfacebook.toUpperCase(),
-                  imageString: AppImage.facebook,
-                  color: Theme.of(context).primaryColorLight,
-                  onTap: () {},
-                  isCentered: true,
-                  vertical: Constants.defaultmargin,
-                  horizontal: Constants.defaultmargin,
+                NormalText(Strings.forgetpassword),
+                HeightWidget(
+                  h: .07,
                 ),
-              ),
-              SizedBox(height: appService.sheight * .03),
-              Expanded(
-                flex: 2,
-                child: ButtonWithImage(
-                  Strings.continuewithfacebook.toUpperCase(),
-                  imageString: AppImage.google,
-                  borderColor: AppColors.borderColor,
-                  onTap: () {},
-                  textColor: AppColors.textColor,
-                  isCentered: true,
-                  vertical: Constants.defaultmargin,
-                  horizontal: Constants.defaultmargin,
-                ),
-              ),
-              SizedBox(height: appService.sheight * .05),
-              Expanded(
-                flex: 3,
-                child: HeaderText(
-                  Strings.orloginwithemail.toUpperCase(),
-                  fontSize: Constants.defaultFontSize,
-                ),
-              ),
-              // SizedBox(height: appService.sheight * .05),
-              InputField(
-                borderRadius: Constants.defaultRadus / 2,
-                color: Theme.of(context).accentColor,
-                hintText: Strings.email,
-                textInputType: TextInputType.emailAddress,
-              ),
+                InkWell(
+                    onTap: () {
+                      Get.to(() => SignupView());
+                    },
+                    child: TwoColorText(
+                      Strings.alreadyAccount,
+                      Strings.signup,
+                    ))
 
-              InputField(
-                borderRadius: Constants.defaultRadus / 2,
-                color: Theme.of(context).primaryColor,
-                obscureText: true,
-                textInputType: TextInputType.visiblePassword,
-                hintText: Strings.password,
-              ),
-              SizedBox(height: appService.sheight * .02),
-              Expanded(
-                flex: 2,
-                child: CustomRoundButton(
-                  label: Strings.signin.toUpperCase(),
-                  onPressed: () {},
-                ),
-              ),
-
-              SizedBox(height: appService.sheight * .02),
-              Expanded(flex: 3, child: NormalText(Strings.forgetpassword)),
-              //  SizedBox(height: appService.sheight * .05),
-              Expanded(
-                  flex: 1,
-                  child: TwoColorText(Strings.alreadyAccount, Strings.signup))
-            ],
+                // SizedBox(height: appService.sheight * .05),
+              ],
+            ),
           ),
         ),
       ),

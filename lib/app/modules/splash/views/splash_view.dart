@@ -7,6 +7,8 @@ import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/modules/signin/views/signin_view.dart';
+import 'package:meditation/app/modules/signin/widget/height_widget.dart';
+import 'package:meditation/app/modules/splash/widget/logo_header_with_text.dart';
 import 'package:meditation/app/widgets/button/button_widget.dart';
 import 'package:meditation/app/widgets/clipper/clipper_widget.dart';
 import 'package:meditation/app/widgets/text/header_widget.dart';
@@ -54,27 +56,7 @@ class Body extends StatelessWidget {
                       ),
                       Expanded(
                         flex: 3,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            NormalText(
-                              Strings.slient,
-                              isBold: true,
-                            ),
-                            SizedBox(
-                              width: appService.swidth * .01,
-                            ),
-                            Image.asset(
-                              AppImage.appIconWhite,
-                              scale: 1.5,
-                            ),
-                            SizedBox(
-                              width: appService.swidth * .01,
-                            ),
-                            NormalText(Strings.moon, isBold: true)
-                          ],
-                        ),
+                        child: LogoTopHeader(),
                       ),
                       Expanded(
                         flex: 7,
@@ -91,9 +73,7 @@ class Body extends StatelessWidget {
                           AppImage.wave,
                           fit: BoxFit.fitWidth,
                         ),
-                      SizedBox(
-                        width: appService.sheight * .01,
-                      ),
+                      HeightWidget(h: .01)
                     ],
                   ),
                 ),
@@ -129,9 +109,7 @@ class Body extends StatelessWidget {
                         isBold1: true,
                       ),
                     ),
-                    SizedBox(
-                      height: appService.sheight * .01,
-                    ),
+                    HeightWidget(h: .01)
                   ],
                 )),
           ],
