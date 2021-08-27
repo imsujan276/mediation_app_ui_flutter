@@ -1,12 +1,17 @@
+import 'package:get/get.dart';
 import 'package:meditation/app/constant/asset_image.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/data/model/topic_model.dart';
+import 'package:meditation/app/modules/remainder/bindings/remainder_binding.dart';
+import 'package:meditation/app/modules/remainder/views/remainder_view.dart';
 
 List<TopicModel> topics = [
   new TopicModel(
     text: 'Reduce Stress',
     image: AppImage.reduceStress,
-    onTap: () {},
+    onTap: () {
+      Get.to(() => RemainderView(), binding: RemainderBinding());
+    },
     color: AppColors.reduceStressbackground,
     code: 0,
   ),

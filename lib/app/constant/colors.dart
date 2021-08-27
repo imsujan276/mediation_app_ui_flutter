@@ -93,6 +93,10 @@ in medication v2 bg of stripe
   static Color softgreen = HexColor("#6CB28E");
   static Color softpurpal = HexColor("#D9A5B5");
 
+  static Color softOrange = HexColor("#FFC97E");
+  static Color softBlue = HexColor("#8E97FD");
+  static Color stripbackground = HexColor("#333242");
+
   static hexcolor1() {
     return getColorFromHex(_color1);
   }

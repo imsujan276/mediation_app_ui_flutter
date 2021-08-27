@@ -26,4 +26,20 @@ class Strings {
       'Explore the app, Find some peace of mind to prepare for meditation.';
   static const String whatbringyou = "What Bring You";
   static const String chooseandfocus = "Choose a topic to focus on:";
+  static const String medidateremindart = 'What time would you';
+  static const String medidateremeindartitle = "like to meditate ?";
+  static const String whichday = "Which day would you";
+  static const String recommendSchedule =
+      'Any time you can choose but We recommend first thing in th morning.';
+  static const String everydayisbest =
+      "Every day is best but we recommend picking at least 5.";
+  static const String nothanks = 'No Thanks';
+  static const String save = 'Save';
+  static const String goodmorning = "Good Morning";
+  static const String goodevening = "Good Evening";
+  static const String wewishyougoodDay = "We wish you have a good day";
+  static const String wewishyougoodevening = "We wish you have a good evening";
+  static const String start = "Start";
+  static const String dailythought = 'Daily Thought';
+  static const String meditation = "Meditation";
 }

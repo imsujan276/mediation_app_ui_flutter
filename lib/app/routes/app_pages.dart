@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import 'package:meditation/app/modules/home/bindings/home_binding.dart';
 import 'package:meditation/app/modules/home/views/home_view.dart';
+import 'package:meditation/app/modules/remainder/bindings/remainder_binding.dart';
+import 'package:meditation/app/modules/remainder/views/remainder_view.dart';
 import 'package:meditation/app/modules/signin/bindings/signin_binding.dart';
 import 'package:meditation/app/modules/signin/views/signin_view.dart';
 import 'package:meditation/app/modules/signup/bindings/signup_binding.dart';
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.TOPIC,
       page: () => TopicView(),
       binding: TopicBinding(),
+    ),
+    GetPage(
+      name: _Paths.REMAINDER,
+      page: () => RemainderView(),
+      binding: RemainderBinding(),
     ),
   ];
 }

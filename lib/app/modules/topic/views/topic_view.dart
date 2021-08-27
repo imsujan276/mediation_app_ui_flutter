@@ -9,6 +9,7 @@ import 'package:meditation/app/data/repositories/topic_data_repositories.dart';
 import 'package:meditation/app/modules/signin/widget/height_widget.dart';
 import 'package:meditation/app/widgets/text/header_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
+import 'package:meditation/app/widgets/topic_and_message.dart';
 
 import '../controllers/topic_controller.dart';
 
@@ -28,23 +29,11 @@ class _TopicViewState extends State<TopicView> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeightWidget(h: .04),
-            HeaderText(
-              Strings.whatbringyou,
-              textColor: AppColors.textColor,
+            TopicHeadAndMessage(
+              maintitle: Strings.whatbringyou,
+              subtitle: Strings.toSlinemood,
+              message: Strings.chooseandfocus,
             ),
-            HeaderText(
-              Strings.toSlinemood + '?',
-              isBold: false,
-              fontSize: Constants.defaultFontSize * 1.6,
-              textColor: AppColors.textColor,
-            ),
-            HeightWidget(h: .02),
-            NormalText(
-              Strings.chooseandfocus,
-              color: Theme.of(context).primaryColorLight,
-            ),
-            HeightWidget(h: .02),
             Expanded(
                 child: StaggeredGridView.countBuilder(
               crossAxisCount: 4,
@@ -56,22 +45,25 @@ class _TopicViewState extends State<TopicView> {
                         borderRadius:
                             BorderRadius.circular(Constants.defaultRadus)),
                     padding: const EdgeInsets.all(Constants.defaultPadding),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            topics[index].image,
-                            fit: BoxFit.fitHeight,
+                    child: InkWell(
+                      onTap: topics[index].onTap,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              topics[index].image,
+                              fit: BoxFit.fitHeight,
+                            ),
                           ),
-                        ),
-                        NormalText(
-                          topics[index].text,
-                          color: topics[index].code == 0
-                              ? AppColors.WHITE
-                              : AppColors.textColor,
-                        )
-                      ],
+                          NormalText(
+                            topics[index].text,
+                            color: topics[index].code == 0
+                                ? AppColors.WHITE
+                                : AppColors.textColor,
+                          )
+                        ],
+                      ),
                     ),
                   )),
               staggeredTileBuilder: (int index) =>
