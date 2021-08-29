@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:meditation/app/modules/course/bindings/course_binding.dart';
+import 'package:meditation/app/modules/course/views/course_view.dart';
 import 'package:meditation/app/modules/home/bindings/home_binding.dart';
 import 'package:meditation/app/modules/home/views/home_view.dart';
 import 'package:meditation/app/modules/remainder/bindings/remainder_binding.dart';
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.REMAINDER,
       page: () => RemainderView(),
       binding: RemainderBinding(),
+    ),
+    GetPage(
+      name: _Paths.COURSE,
+      page: () => CourseView(),
+      binding: CourseBinding(),
     ),
   ];
 }

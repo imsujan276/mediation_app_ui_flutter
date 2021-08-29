@@ -11,6 +11,7 @@ abstract class Routes {
   static const WELCOME = _Paths.WELCOME;
   static const TOPIC = _Paths.TOPIC;
   static const REMAINDER = _Paths.REMAINDER;
+  static const COURSE = _Paths.COURSE;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const WELCOME = '/welcome';
   static const TOPIC = '/topic';
   static const REMAINDER = '/remainder';
+  static const COURSE = '/course';
 }

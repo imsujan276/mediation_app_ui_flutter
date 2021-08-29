@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import 'package:get/get.dart';
 import 'package:meditation/app/constant/Strings.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/data/repositories/topic_data_repositories.dart';
-import 'package:meditation/app/modules/signin/widget/height_widget.dart';
-import 'package:meditation/app/widgets/text/header_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
 import 'package:meditation/app/widgets/topic_and_message.dart';
-
-import '../controllers/topic_controller.dart';
 
 class TopicView extends StatefulWidget {
   @override

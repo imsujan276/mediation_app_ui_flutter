@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meditation/app/constant/Strings.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
-import 'package:meditation/app/constant/themes.dart';
 
 ///this custome widget button will show image and text in button
 ///take label as required paraments

@@ -42,4 +42,14 @@ class Strings {
   static const String start = "Start";
   static const String dailythought = 'Daily Thought';
   static const String meditation = "Meditation";
+
+  static const String recommended = 'Recomended for you';
+  static const String happyMoring = "Happy Morning";
+  static const String happyEvening = "Happy Evening";
+  static const String course = "Course";
+  static const String course_message =
+      "Ease the mind into a restful night’\s sleep  with these deep, amblent tones.";
+  static const String narration = "Pick a Nnrrator";
+  static const String malevoice = 'Male Voice';
+  static const String femalevoice = "Female voice";
 }

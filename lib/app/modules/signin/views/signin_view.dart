@@ -2,17 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:meditation/app/constant/Strings.dart';
-import 'package:meditation/app/constant/asset_image.dart';
-import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/modules/signin/widget/height_widget.dart';
 import 'package:meditation/app/modules/signin/widget/sign_in_up_widget.dart';
 import 'package:meditation/app/modules/signup/views/signup_view.dart';
 import 'package:meditation/app/widgets/button/button_widget.dart';
-import 'package:meditation/app/widgets/button/custome_button.dart';
 import 'package:meditation/app/widgets/input/input_widget.dart';
-import 'package:meditation/app/widgets/text/header_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
 import 'package:meditation/app/widgets/text/two_color_text.dart';
 

@@ -1,9 +1,6 @@
 import 'package:get/get.dart';
 
 class WelcomeController extends GetxController {
-  //TODO: Implement WelcomeController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +13,4 @@ class WelcomeController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

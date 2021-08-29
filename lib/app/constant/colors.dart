@@ -85,6 +85,7 @@ in medication v2 bg of stripe
   static Color fbbackgroundColor = HexColor("#7583CA");
   static Color backgroundofWaveClipPath = HexColor("#FAF8F5");
   static Color welcomebackgroundColor = HexColor("#8C96FF");
+  static Color unselectNavColor = HexColor("#A0A3B1");
 
   static Color reduceStressbackground = HexColor("#AEB4FC");
   static Color improvePerformance = HexColor("#FA6E5A");
@@ -92,10 +93,14 @@ in medication v2 bg of stripe
   static Color reduceAxienty = HexColor('#FFCF86');
   static Color softgreen = HexColor("#6CB28E");
   static Color softpurpal = HexColor("#D9A5B5");
+  static Color softLightOrange = HexColor('##FEE3B4');
 
   static Color softOrange = HexColor("#FFC97E");
   static Color softBlue = HexColor("#8E97FD");
   static Color stripbackground = HexColor("#333242");
+
+  static Color heartColor = HexColor("#FF84A2");
+  static Color headsetColor = HexColor("#7FD2F2");
 
   static hexcolor1() {
     return getColorFromHex(_color1);

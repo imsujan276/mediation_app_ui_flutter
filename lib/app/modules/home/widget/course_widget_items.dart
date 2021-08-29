@@ -19,8 +19,8 @@ class CourseWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: appService.sheight * .2,
-      width: appService.swidth * .5,
+      height: appService.sheight * .18,
+      width: appService.swidth * .45,
       // padding: EdgeInsets.only(
       //     left: Constants.defaultPadding / 1.5),
       margin: EdgeInsets.symmetric(
@@ -44,6 +44,7 @@ class CourseWidget extends StatelessWidget {
               child: HeaderText(
                 e.title,
                 textColor: e.btnColor,
+                fontSize: appService.swidth * .06,
               ),
             ),
           ),
@@ -54,6 +55,7 @@ class CourseWidget extends StatelessWidget {
               child: NormalText(
                 e.type,
                 color: e.btnColor,
+                fontSize: appService.swidth * .04,
               ),
             ),
           ),
@@ -62,11 +64,12 @@ class CourseWidget extends StatelessWidget {
             NormalText(
               e.duration,
               color: e.btnColor,
+              fontSize: Constants.defaultFontSize - 3,
             ),
             Expanded(
               child: CustomRoundButton(
                 label: Strings.start,
-                onPressed: () {},
+                onPressed: e.onTap,
                 backgroundColor: e.btnColor,
                 textColor: e.textColor,
               ),
