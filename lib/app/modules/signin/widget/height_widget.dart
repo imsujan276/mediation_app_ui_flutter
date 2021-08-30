@@ -17,14 +17,14 @@ class HeightWidget extends StatelessWidget {
 
 ///widget width for geting some space in row
 class WidthWidget extends StatelessWidget {
-  final double h;
+  final double w;
   const WidthWidget({
     Key? key,
-    required this.h,
+    required this.w,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: appService.sheight * h);
+    return SizedBox(width: appService.sheight * w);
   }
 }

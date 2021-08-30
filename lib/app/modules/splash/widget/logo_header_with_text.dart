@@ -24,12 +24,12 @@ class LogoTopHeader extends StatelessWidget {
           isBold: true,
           color: textColor,
         ),
-        WidthWidget(h: .01),
+        WidthWidget(w: .01),
         Image.asset(
           image ?? AppImage.appIconWhite,
           scale: 1.5,
         ),
-        WidthWidget(h: .01),
+        WidthWidget(w: .01),
         NormalText(
           Strings.moon,
           isBold: true,

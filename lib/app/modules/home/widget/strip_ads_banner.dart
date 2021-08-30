@@ -11,13 +11,29 @@ import 'package:meditation/app/widgets/text/normal_widget.dart';
 class StripBannerWidget extends StatelessWidget {
   const StripBannerWidget({
     Key? key,
+    required this.backgroundImage,
+    required this.buttonColor,
+    required this.iconColor,
+    required this.title,
+    required this.subtitle,
+    required this.info,
+    required this.textColor,
+    this.backgroundColor,
   }) : super(key: key);
+  final String backgroundImage;
+  final Color buttonColor;
+  final Color iconColor;
+  final String title;
+  final String subtitle;
+  final String info;
+  final Color textColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.stripbackground,
+        color: backgroundColor ?? AppColors.stripbackground,
         borderRadius: BorderRadius.circular(Constants.defaultRadus / 2),
       ),
       width: appService.swidth,
@@ -25,7 +41,7 @@ class StripBannerWidget extends StatelessWidget {
       // padding: EdgeInsets.all(Constants.defaultPadding),
       child: Stack(
         children: [
-          Image.asset(AppImage.striptwo),
+          Image.asset(backgroundImage),
           Container(
             padding: const EdgeInsets.all(Constants.defaultPadding * 1.2),
             child: Row(
@@ -35,17 +51,12 @@ class StripBannerWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      HeaderText(Strings.dailythought,
-                          textColor: AppColors.WHITE),
-                      NormalText(Strings.meditation + '.3-10 Min',
-                          color: AppColors.WHITE),
+                      HeaderText(title, textColor: textColor),
+                      NormalText(subtitle + ' ' + info, color: textColor),
                     ]),
                 CircleAvatar(
-                  backgroundColor: AppColors.WHITE,
-                  child: Icon(
-                    Icons.play_arrow,
-                    color: AppColors.stripbackground,
-                  ),
+                  backgroundColor: buttonColor,
+                  child: Icon(Icons.play_arrow, color: iconColor),
                 )
               ],
             ),

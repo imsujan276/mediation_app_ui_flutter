@@ -41,7 +41,7 @@ class MaleVoiceWIdget extends StatelessWidget {
                                 : AppColors.pRIMARYCOLORLIGHT),
                       ),
                     ),
-                    WidthWidget(h: .02),
+                    WidthWidget(w: .02),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

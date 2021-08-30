@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 import 'package:meditation/app/constant/asset_image.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/data/model/course_model.dart';
-import 'package:meditation/app/modules/course/bindings/course_binding.dart';
-import 'package:meditation/app/modules/course/views/course_view.dart';
 
 List<Course> courses = [
   new Course(
@@ -14,7 +12,7 @@ List<Course> courses = [
       duration: '3-10 Min',
       textColor: AppColors.textColor,
       onTap: () {
-        Get.to(CourseView(), binding: CourseBinding());
+        Get.toNamed('/course');
       },
       btnColor: AppColors.WHITE),
   new Course(

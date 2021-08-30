@@ -60,7 +60,7 @@ class CourseWidget extends StatelessWidget {
             ),
           ),
           Row(children: [
-            WidthWidget(h: .015),
+            WidthWidget(w: .015),
             NormalText(
               e.duration,
               color: e.btnColor,

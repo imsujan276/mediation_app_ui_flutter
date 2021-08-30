@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:meditation/app/constant/Strings.dart';
+import 'package:meditation/app/constant/asset_image.dart';
+import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/data/repositories/course_data_repositories.dart';
@@ -23,35 +25,53 @@ class HomeView extends GetView<HomeController> {
           child: Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: Constants.defaultPadding),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  HeightWidget(h: .02),
-                  LogoTopHeader(),
-                  TopicHeadAndMessage(
-                    maintitle: Strings.goodmorning + ',Asfar',
-                    subtitle: '',
-                    message: Strings.wewishyougoodDay,
-                  ),
-                  HeightWidget(h: .01),
-                  Container(
-                    width: appService.swidth,
-                    height: appService.sheight * .32,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: courses.map((e) => CourseWidget(e: e)).toList(),
-                    ),
-                  ),
-                  StripBannerWidget(),
-                  HeightWidget(h: .03),
-                  RecommendedWidget()
-                ],
-              ),
-            ),
+            child:
+                Obx(() => controller.bodyWidget[controller.currentTab.value]),
           ),
         ),
         bottomNavigationBar: BottomNavigation());
+  }
+}
+
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        HeightWidget(h: .02),
+        LogoTopHeader(),
+        TopicHeadAndMessage(
+          maintitle: Strings.goodmorning + ',Asfar',
+          subtitle: '',
+          message: Strings.wewishyougoodDay,
+        ),
+        HeightWidget(h: .01),
+        Container(
+          width: appService.swidth,
+          height: appService.sheight * .32,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: courses.map((e) => CourseWidget(e: e)).toList(),
+          ),
+        ),
+        StripBannerWidget(
+          backgroundImage: AppImage.striptwo,
+          buttonColor: AppColors.WHITE,
+          iconColor: AppColors.stripbackground,
+          info: '3-10 Min',
+          subtitle: Strings.meditation,
+          title: Strings.dailythought,
+          textColor: AppColors.WHITE,
+        ),
+        HeightWidget(h: .03),
+        RecommendedWidget()
+      ],
+    );
   }
 }
