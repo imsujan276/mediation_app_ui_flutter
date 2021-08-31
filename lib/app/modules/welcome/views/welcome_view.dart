@@ -53,19 +53,19 @@ class WelcomeView extends GetView<WelcomeController> {
             ),
             Column(
               children: [
-                HeightWidget(h: .03),
+                HeightWidget(.03),
                 LogoTopHeader(
                   image: AppImage.appIconbg,
                   textColor: AppColors.WHITE,
                 ),
-                HeightWidget(h: .07),
+                HeightWidget(.07),
                 HeaderText(
                   Strings.welcomeGreet,
                   textColor: AppColors.WHITE,
                 ),
-                HeightWidget(h: .01),
+                HeightWidget(.01),
                 HeaderText(Strings.toSlinemood, textColor: AppColors.WHITE),
-                HeightWidget(h: .04),
+                HeightWidget(.04),
                 NormalText(
                   Strings.prepareMeditationMessage,
                   color: AppColors.WHITE,

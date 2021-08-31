@@ -70,13 +70,13 @@ class RecommendedListWidget extends StatelessWidget {
                                 BorderRadius.circular(Constants.defaultmargin)),
                       ),
                     ),
-                    HeightWidget(h: .001),
+                    HeightWidget(.001),
                     HeaderText(
                       e.title,
                       textColor: AppColors.textColor,
                       fontSize: appService.swidth * .05,
                     ),
-                    HeightWidget(h: .001),
+                    HeightWidget(.001),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -85,11 +85,11 @@ class RecommendedListWidget extends StatelessWidget {
                           fontSize: appService.swidth * .031,
                           color: AppColors.pRIMARYCOLORLIGHT,
                         ),
-                        WidthWidget(w: .01),
+                        WidthWidget(.01),
                         CircleAvatar(
                             radius: Constants.defaultRadus / 9,
                             backgroundColor: AppColors.pRIMARYCOLORLIGHT),
-                        WidthWidget(w: .008),
+                        WidthWidget(.008),
                         NormalText(
                           e.duration,
                           color: AppColors.pRIMARYCOLORLIGHT,

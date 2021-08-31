@@ -26,7 +26,7 @@ class TopicHeadAndMessage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeightWidget(h: .04),
+          HeightWidget(.04),
           HeaderText(
             maintitle,
             textColor: AppColors.textColor,
@@ -38,12 +38,12 @@ class TopicHeadAndMessage extends StatelessWidget {
               fontSize: Constants.defaultFontSize * 1.6,
               textColor: AppColors.textColor,
             ),
-          HeightWidget(h: .02),
+          HeightWidget(.02),
           NormalText(
             message,
             color: Theme.of(context).primaryColorLight,
           ),
-          HeightWidget(h: .02),
+          HeightWidget(.02),
         ]);
   }
 }

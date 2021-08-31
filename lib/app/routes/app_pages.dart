@@ -4,6 +4,8 @@ import 'package:meditation/app/modules/course/bindings/course_binding.dart';
 import 'package:meditation/app/modules/course/views/course_view.dart';
 import 'package:meditation/app/modules/home/bindings/home_binding.dart';
 import 'package:meditation/app/modules/home/views/home_view.dart';
+import 'package:meditation/app/modules/music/bindings/music_binding.dart';
+import 'package:meditation/app/modules/music/views/music_view.dart';
 import 'package:meditation/app/modules/remainder/bindings/remainder_binding.dart';
 import 'package:meditation/app/modules/remainder/views/remainder_view.dart';
 import 'package:meditation/app/modules/signin/bindings/signin_binding.dart';
@@ -16,6 +18,8 @@ import 'package:meditation/app/modules/topic/bindings/topic_binding.dart';
 import 'package:meditation/app/modules/topic/views/topic_view.dart';
 import 'package:meditation/app/modules/welcome/bindings/welcome_binding.dart';
 import 'package:meditation/app/modules/welcome/views/welcome_view.dart';
+import 'package:meditation/app/modules/welcomespleep/bindings/welcomespleep_binding.dart';
+import 'package:meditation/app/modules/welcomespleep/views/welcomespleep_view.dart';
 
 part 'app_routes.dart';
 
@@ -64,6 +68,16 @@ class AppPages {
       name: _Paths.COURSE,
       page: () => CourseView(),
       binding: CourseBinding(),
+    ),
+    GetPage(
+      name: _Paths.MUSIC,
+      page: () => MusicView(),
+      binding: MusicBinding(),
+    ),
+    GetPage(
+      name: _Paths.WELCOMESPLEEP,
+      page: () => WelcomespleepView(),
+      binding: WelcomespleepBinding(),
     ),
   ];
 }

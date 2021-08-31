@@ -4,9 +4,9 @@ import 'package:meditation/app/constant/controller_service.dart';
 ///Weigt height for get some space in column
 class HeightWidget extends StatelessWidget {
   final double h;
-  const HeightWidget({
+  const HeightWidget(
+    this.h, {
     Key? key,
-    required this.h,
   }) : super(key: key);
 
   @override
@@ -18,9 +18,9 @@ class HeightWidget extends StatelessWidget {
 ///widget width for geting some space in row
 class WidthWidget extends StatelessWidget {
   final double w;
-  const WidthWidget({
+  const WidthWidget(
+    this.w, {
     Key? key,
-    required this.w,
   }) : super(key: key);
 
   @override

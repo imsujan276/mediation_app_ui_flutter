@@ -44,14 +44,14 @@ class HomeWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeightWidget(h: .02),
+        HeightWidget(.02),
         LogoTopHeader(),
         TopicHeadAndMessage(
           maintitle: Strings.goodmorning + ',Asfar',
           subtitle: '',
           message: Strings.wewishyougoodDay,
         ),
-        HeightWidget(h: .01),
+        HeightWidget(.01),
         Container(
           width: appService.swidth,
           height: appService.sheight * .32,
@@ -69,7 +69,7 @@ class HomeWidget extends StatelessWidget {
           title: Strings.dailythought,
           textColor: AppColors.WHITE,
         ),
-        HeightWidget(h: .03),
+        HeightWidget(.03),
         RecommendedWidget()
       ],
     );

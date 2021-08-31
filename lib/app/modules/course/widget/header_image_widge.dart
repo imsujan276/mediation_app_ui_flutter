@@ -49,7 +49,7 @@ class HeaderImages extends StatelessWidget {
                         color: AppColors.WHITE,
                       ),
                     ),
-                    WidthWidget(w: .01),
+                    WidthWidget(.01),
                     CircleAvatar(
                       backgroundColor: AppColors.BLACK.withOpacity(.4),
                       child: Icon(

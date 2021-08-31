@@ -47,7 +47,7 @@ class SigninView extends GetView<SigninController> {
                   hintText: Strings.password,
                 ),
                 HeightWidget(
-                  h: .039,
+                  .039,
                 ),
                 SizedBox(
                   height: appService.sheight * .06,
@@ -59,11 +59,11 @@ class SigninView extends GetView<SigninController> {
                   ),
                 ),
                 HeightWidget(
-                  h: .01,
+                  .01,
                 ),
                 NormalText(Strings.forgetpassword),
                 HeightWidget(
-                  h: .07,
+                  .07,
                 ),
                 InkWell(
                     onTap: () {

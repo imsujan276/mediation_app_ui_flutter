@@ -61,7 +61,7 @@ class RemainderView extends GetView<RemainderController> {
                 message: Strings.everydayisbest,
                 isSecondbold: true,
               ),
-              HeightWidget(h: .02),
+              HeightWidget(.02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: controller.weekdaySelected
@@ -85,7 +85,7 @@ class RemainderView extends GetView<RemainderController> {
                         ))
                     .toList(),
               ),
-              HeightWidget(h: .05),
+              HeightWidget(.05),
               SizedBox(
                 height: appService.sheight * .07,
                 child: CustomRoundButton(
@@ -97,7 +97,7 @@ class RemainderView extends GetView<RemainderController> {
                   textColor: AppColors.WHITE,
                 ),
               ),
-              HeightWidget(h: .01),
+              HeightWidget(.01),
               Center(
                 child: NormalText(
                   Strings.nothanks,
@@ -106,7 +106,7 @@ class RemainderView extends GetView<RemainderController> {
                   isBold: true,
                 ),
               ),
-              HeightWidget(h: .02),
+              HeightWidget(.02),
             ],
           ),
         ),

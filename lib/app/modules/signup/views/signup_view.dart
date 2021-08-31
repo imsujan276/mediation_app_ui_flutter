@@ -58,7 +58,7 @@ class SignupView extends GetView<SignupController> {
                   ),
                 ),
                 HeightWidget(
-                  h: .039,
+                  .039,
                 ),
                 SizedBox(
                   height: appService.sheight * .06,

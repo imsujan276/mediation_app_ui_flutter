@@ -10,6 +10,7 @@ import 'package:meditation/app/data/model/meditation_odel.dart';
 import 'package:meditation/app/data/repositories/topic_data_repositories.dart';
 import 'package:meditation/app/modules/home/controllers/home_controller.dart';
 import 'package:meditation/app/modules/home/widget/strip_ads_banner.dart';
+import 'package:meditation/app/modules/music/views/music_view.dart';
 import 'package:meditation/app/modules/signin/widget/height_widget.dart';
 import 'package:meditation/app/widgets/text/header_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
@@ -22,18 +23,18 @@ class MeditationView extends StatelessWidget {
     final controller = Get.find<HomeController>();
     return Column(
       children: [
-        HeightWidget(h: .08),
+        HeightWidget(.08),
         HeaderText(
           Strings.meditation,
           textColor: AppColors.textColor,
         ),
-        HeightWidget(h: .01),
+        HeightWidget(.01),
         NormalText(
           'we can learn how to recognize when our minds are doing their normal everyday acrobatics.',
           color: AppColors.pRIMARYCOLORLIGHT,
           isCentered: true,
         ),
-        HeightWidget(h: .02),
+        HeightWidget(.02),
         MeditationMenuWIdget(),
         StripBannerWidget(
           backgroundImage: AppImage.stripone,
@@ -45,41 +46,58 @@ class MeditationView extends StatelessWidget {
           textColor: AppColors.WHITE,
           backgroundColor: AppColors.calmColor,
         ),
-        HeightWidget(h: .02),
+        HeightWidget(.02),
         Expanded(
           child: StaggeredGridView.countBuilder(
             crossAxisCount: 4,
             itemCount: topics.length,
             itemBuilder: (BuildContext context, int index) => new Container(
-                color: topics[index].color,
+                decoration: BoxDecoration(
+                    color: topics[index].color,
+                    borderRadius:
+                        BorderRadius.circular(Constants.defaultRadus / 2)),
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius:
                           BorderRadius.circular(Constants.defaultRadus)),
-                  padding: const EdgeInsets.all(Constants.defaultPadding),
+                  // padding: const EdgeInsets.all(Constants.defaultPadding),
                   child: InkWell(
-                    onTap: topics[index].onTap,
+                    onTap: () {
+                      Get.to(() => MusicView());
+                    },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
+                          flex: 7,
                           child: Image.asset(
                             topics[index].image,
                             fit: BoxFit.fitHeight,
                           ),
                         ),
-                        NormalText(
-                          topics[index].text,
-                          color: topics[index].code == 0
-                              ? AppColors.WHITE
-                              : AppColors.textColor,
+                        Container(
+                          width: appService.swidth,
+                          padding:
+                              const EdgeInsets.all(Constants.defaultPadding),
+                          decoration: BoxDecoration(
+                              color:
+                                  topics[index].color, // topics[index].color,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(
+                                      Constants.defaultRadus / 2),
+                                  bottomRight: Radius.circular(
+                                      Constants.defaultRadus / 2))),
+                          child: NormalText(
+                            topics[index].text,
+                            color: AppColors.WHITE,
+                          ),
                         )
                       ],
                     ),
                   ),
                 )),
             staggeredTileBuilder: (int index) =>
-                new StaggeredTile.count(2, index.isEven ? 2 : 2.3),
+                new StaggeredTile.count(2, index.isEven ? 2.3 : 2),
             mainAxisSpacing: 4.0,
             crossAxisSpacing: 4.0,
           ),

@@ -34,7 +34,7 @@ class SignInSignUpTopWidget extends StatelessWidget {
             ),
           ),
           HeightWidget(
-            h: .069,
+            .069,
           ),
           HeaderText(
             title,
@@ -42,7 +42,7 @@ class SignInSignUpTopWidget extends StatelessWidget {
             isCentered: true,
           ),
           HeightWidget(
-            h: .019,
+            .019,
           ),
           ButtonWithImage(
             Strings.continuewithfacebook.toUpperCase(),
@@ -54,7 +54,7 @@ class SignInSignUpTopWidget extends StatelessWidget {
             horizontal: Constants.defaultmargin,
           ),
           HeightWidget(
-            h: .019,
+            .019,
           ),
           ButtonWithImage(
             Strings.continuewithfacebook.toUpperCase(),
@@ -67,14 +67,14 @@ class SignInSignUpTopWidget extends StatelessWidget {
             horizontal: Constants.defaultmargin,
           ),
           HeightWidget(
-            h: .07,
+            .07,
           ),
           HeaderText(
             Strings.orloginwithemail.toUpperCase(),
             fontSize: Constants.defaultFontSize,
           ),
           HeightWidget(
-            h: .01,
+            .01,
           ),
         ],
       ),

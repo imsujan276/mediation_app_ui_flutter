@@ -74,7 +74,7 @@ class Body extends StatelessWidget {
                           AppImage.wave,
                           fit: BoxFit.fitWidth,
                         ),
-                      HeightWidget(h: .01)
+                      HeightWidget(.01)
                     ],
                   ),
                 ),
@@ -112,7 +112,7 @@ class Body extends StatelessWidget {
                         isBold1: true,
                       ),
                     ),
-                    HeightWidget(h: .01)
+                    HeightWidget(.01)
                   ],
                 )),
           ],

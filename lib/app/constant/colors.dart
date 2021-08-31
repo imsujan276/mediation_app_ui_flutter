@@ -102,6 +102,7 @@ in medication v2 bg of stripe
   static Color heartColor = HexColor("#FF84A2");
   static Color headsetColor = HexColor("#7FD2F2");
   static Color calmColor = HexColor("#F1DDCF");
+  static Color musicbackground = HexColor("#FAF7F2");
 
   static hexcolor1() {
     return getColorFromHex(_color1);
