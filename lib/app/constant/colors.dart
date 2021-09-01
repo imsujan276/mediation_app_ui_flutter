@@ -69,7 +69,7 @@ in medication v2 bg of stripe
    */
 
   static Color primaryCOLOR = HexColor("#8E97FD");
-  static Color pRIMARYCOLORLIGHT = HexColor("#E5E5E5");
+  static Color pRIMARYCOLORLIGHT = HexColor("#8E97FD");
   static Color pRIMARYCOLORDARK = HexColor("#03174C");
   static Color aCCENTCOLOR = HexColor("#F2F3F7");
   static const Color WHITE = Color(0xFFFFFFFF);

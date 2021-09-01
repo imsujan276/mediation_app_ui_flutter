@@ -6,6 +6,7 @@ import 'package:meditation/app/data/model/recommended_model.dart';
 import 'package:meditation/app/data/repositories/recommend_repositiories.dart';
 import 'package:meditation/app/modules/home/views/home_view.dart';
 import 'package:meditation/app/modules/home/widget/meditation/meditation_widget.dart';
+import 'package:meditation/app/modules/home/widget/sleep/sleep_widget.dart';
 import 'package:meditation/app/modules/home/widget/tabItems.dart';
 
 class HomeController extends GetxController {
@@ -14,6 +15,8 @@ class HomeController extends GetxController {
     super.onInit();
     loadRemommended();
   }
+
+  RxBool sleepingMenuClick = false.obs;
 
   //It  controll the index of meditation menu
   RxInt mediMenuIndex = 0.obs;
@@ -29,7 +32,7 @@ class HomeController extends GetxController {
 
   List<Widget> bodyWidget = [
     SingleChildScrollView(child: HomeWidget()),
-    Container(),
+    SleepView(),
     MeditationView(),
     Container(),
     Container(),

@@ -6,6 +6,8 @@ import 'package:meditation/app/modules/home/bindings/home_binding.dart';
 import 'package:meditation/app/modules/home/views/home_view.dart';
 import 'package:meditation/app/modules/music/bindings/music_binding.dart';
 import 'package:meditation/app/modules/music/views/music_view.dart';
+import 'package:meditation/app/modules/play/bindings/play_binding.dart';
+import 'package:meditation/app/modules/play/views/play_view.dart';
 import 'package:meditation/app/modules/remainder/bindings/remainder_binding.dart';
 import 'package:meditation/app/modules/remainder/views/remainder_view.dart';
 import 'package:meditation/app/modules/signin/bindings/signin_binding.dart';
@@ -78,6 +80,11 @@ class AppPages {
       name: _Paths.WELCOMESPLEEP,
       page: () => WelcomespleepView(),
       binding: WelcomespleepBinding(),
+    ),
+    GetPage(
+      name: _Paths.PLAY,
+      page: () => PlayView(),
+      binding: PlayBinding(),
     ),
   ];
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart';
 
 import 'package:meditation/app/constant/Strings.dart';
 import 'package:meditation/app/constant/colors.dart';
@@ -17,6 +18,7 @@ class _TopicViewState extends State<TopicView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Get.isDarkMode ? Theme.of(context).primaryColor : null,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(Constants.defaultPadding),

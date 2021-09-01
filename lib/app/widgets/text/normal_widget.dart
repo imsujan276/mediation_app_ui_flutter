@@ -8,6 +8,7 @@ class NormalText extends StatelessWidget {
   final String text;
   final bool isCentered;
   final Color? color;
+  final int maxline;
 
   const NormalText(
     this.text, {
@@ -16,6 +17,7 @@ class NormalText extends StatelessWidget {
     this.hasUnderline = false,
     this.isCentered = false,
     this.color,
+    this.maxline = 50,
   });
 
   @override
@@ -29,6 +31,8 @@ class NormalText extends StatelessWidget {
             color: color ?? AppColors.textLightColor,
           ),
       textAlign: isCentered ? TextAlign.center : null,
+      maxLines: maxline,
+      overflow: TextOverflow.clip,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
@@ -19,18 +20,25 @@ class FavioritAndListening extends StatelessWidget {
             children: [
               Icon(
                 Icons.favorite,
-                color: AppColors.heartColor,
+                color: Get.isDarkMode ? AppColors.WHITE : AppColors.heartColor,
               ),
-              NormalText('24.234 Favorits')
+              NormalText(
+                '24.234 Favorits',
+                color: Get.isDarkMode ? AppColors.WHITE : null,
+              )
             ],
           ),
           Row(
             children: [
               Icon(
                 Icons.headset,
-                color: AppColors.headsetColor,
+                color:
+                    Get.isDarkMode ? AppColors.WHITE : AppColors.headsetColor,
               ),
-              NormalText('24.234 Listening')
+              NormalText(
+                '24.234 Listening',
+                color: Get.isDarkMode ? AppColors.WHITE : null,
+              )
             ],
           )
         ],

@@ -21,13 +21,11 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: Constants.defaultPadding),
-            child:
-                Obx(() => controller.bodyWidget[controller.currentTab.value]),
-          ),
+        backgroundColor: Get.isDarkMode ? Theme.of(context).primaryColor : null,
+        body: Padding(
+          padding:
+              const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+          child: Obx(() => controller.bodyWidget[controller.currentTab.value]),
         ),
         bottomNavigationBar: BottomNavigation());
   }
@@ -44,7 +42,7 @@ class HomeWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeightWidget(.02),
+        HeightWidget(.09),
         LogoTopHeader(),
         TopicHeadAndMessage(
           maintitle: Strings.goodmorning + ',Asfar',

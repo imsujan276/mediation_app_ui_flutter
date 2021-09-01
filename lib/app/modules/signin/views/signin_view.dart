@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:meditation/app/constant/Strings.dart';
+import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/modules/signin/widget/height_widget.dart';
@@ -18,6 +19,7 @@ class SigninView extends GetView<SigninController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Get.isDarkMode ? Theme.of(context).primaryColor : null,
       body: SafeArea(
         child: Container(
           width: appService.swidth,
@@ -61,7 +63,10 @@ class SigninView extends GetView<SigninController> {
                 HeightWidget(
                   .01,
                 ),
-                NormalText(Strings.forgetpassword),
+                NormalText(
+                  Strings.forgetpassword,
+                  color: Get.isDarkMode ? AppColors.WHITE : null,
+                ),
                 HeightWidget(
                   .07,
                 ),

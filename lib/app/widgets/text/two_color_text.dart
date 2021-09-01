@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 
 ///It will have two different color in same line of text
@@ -40,7 +41,11 @@ class TwoColorText extends StatelessWidget {
               fontSize: fontSize != null ? fontSize! : null,
               fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
               decoration: hasUnderline ? TextDecoration.underline : null,
-              color: color1 ?? AppColors.textLightColor,
+              color: color1 != null
+                  ? color1
+                  : Get.isDarkMode
+                      ? AppColors.WHITE
+                      : AppColors.textLightColor,
             ),
         children: <TextSpan>[
           TextSpan(
@@ -49,7 +54,7 @@ class TwoColorText extends StatelessWidget {
                     fontSize: fontSize1 != null ? fontSize1! : null,
                     fontWeight: isBold1 ? FontWeight.bold : FontWeight.normal,
                     decoration: isUnderline1 ? TextDecoration.underline : null,
-                    color: color2 ?? Theme.of(context).primaryColorLight,
+                    color: color2 ?? AppColors.pRIMARYCOLORLIGHT,
                   )),
         ],
       ),

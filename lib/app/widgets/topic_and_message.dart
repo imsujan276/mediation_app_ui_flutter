@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/modules/signin/widget/height_widget.dart';
@@ -29,19 +30,23 @@ class TopicHeadAndMessage extends StatelessWidget {
           HeightWidget(.04),
           HeaderText(
             maintitle,
-            textColor: AppColors.textColor,
+            textColor: Get.isDarkMode
+                ? Theme.of(context).accentColor
+                : AppColors.textColor,
           ),
           if (subtitle.isNotEmpty)
             HeaderText(
               subtitle,
               isBold: isSecondbold,
               fontSize: Constants.defaultFontSize * 1.6,
-              textColor: AppColors.textColor,
+              textColor: Get.isDarkMode
+                  ? Theme.of(context).accentColor
+                  : AppColors.textColor,
             ),
           HeightWidget(.02),
           NormalText(
             message,
-            color: Theme.of(context).primaryColorLight,
+            color: AppColors.textLightColor,
           ),
           HeightWidget(.02),
         ]);

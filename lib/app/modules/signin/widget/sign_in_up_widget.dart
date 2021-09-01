@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meditation/app/constant/Strings.dart';
 import 'package:meditation/app/constant/asset_image.dart';
 import 'package:meditation/app/constant/colors.dart';
@@ -40,6 +41,9 @@ class SignInSignUpTopWidget extends StatelessWidget {
             title,
             isBold: true,
             isCentered: true,
+            textColor: Get.isDarkMode
+                ? Theme.of(context).accentColor
+                : AppColors.textColor,
           ),
           HeightWidget(
             .019,
@@ -47,7 +51,7 @@ class SignInSignUpTopWidget extends StatelessWidget {
           ButtonWithImage(
             Strings.continuewithfacebook.toUpperCase(),
             imageString: AppImage.facebook,
-            color: Theme.of(context).primaryColorLight,
+            color: AppColors.pRIMARYCOLORLIGHT,
             onTap: () {},
             isCentered: true,
             vertical: Constants.defaultmargin,
@@ -61,7 +65,9 @@ class SignInSignUpTopWidget extends StatelessWidget {
             imageString: AppImage.google,
             borderColor: AppColors.borderColor,
             onTap: () {},
-            textColor: AppColors.textColor,
+            textColor: Get.isDarkMode
+                ? Theme.of(context).accentColor
+                : AppColors.textColor,
             isCentered: true,
             vertical: Constants.defaultmargin,
             horizontal: Constants.defaultmargin,
@@ -72,6 +78,9 @@ class SignInSignUpTopWidget extends StatelessWidget {
           HeaderText(
             Strings.orloginwithemail.toUpperCase(),
             fontSize: Constants.defaultFontSize,
+            textColor: Get.isDarkMode
+                ? Theme.of(context).accentColor
+                : AppColors.textLightColor,
           ),
           HeightWidget(
             .01,

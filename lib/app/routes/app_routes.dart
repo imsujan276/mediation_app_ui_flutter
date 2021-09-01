@@ -14,6 +14,7 @@ abstract class Routes {
   static const COURSE = _Paths.COURSE;
   static const MUSIC = _Paths.MUSIC;
   static const WELCOMESPLEEP = _Paths.WELCOMESPLEEP;
+  static const PLAY = _Paths.PLAY;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const COURSE = '/course';
   static const MUSIC = '/music';
   static const WELCOMESPLEEP = '/welcomespleep';
+  static const PLAY = '/play';
 }

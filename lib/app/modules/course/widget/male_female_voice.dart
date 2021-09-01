@@ -38,7 +38,7 @@ class MaleVoiceWIdget extends StatelessWidget {
                         child: Icon(Icons.play_arrow,
                             color: !e.isPlaying
                                 ? AppColors.primaryCOLOR
-                                : AppColors.pRIMARYCOLORLIGHT),
+                                : AppColors.WHITE),
                       ),
                     ),
                     WidthWidget(.02),
@@ -49,7 +49,9 @@ class MaleVoiceWIdget extends StatelessWidget {
                           HeaderText(
                             e.title,
                             fontSize: appService.swidth * .05,
-                            textColor: AppColors.textColor,
+                            textColor: Get.isDarkMode
+                                ? Theme.of(context).accentColor
+                                : AppColors.textColor,
                           ),
                           NormalText(
                             e.duration,

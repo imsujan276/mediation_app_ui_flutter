@@ -120,7 +120,7 @@ class Themes {
     brightness: Brightness.dark,
     primaryColor: AppColors.pRIMARYCOLORDARK,
     accentColor: AppColors.aCCENTCOLOR,
-    backgroundColor: AppColors.pRIMARYCOLORDARK,
+    backgroundColor: AppColors.pRIMARYCOLORLIGHT,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     textTheme: darkTextTheme,
     scaffoldBackgroundColor: AppColors.BLACK,

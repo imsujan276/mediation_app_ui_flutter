@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
@@ -66,8 +67,11 @@ class CustomRoundButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: TextButton(
           style: TextButton.styleFrom(
-              backgroundColor:
-                  backgroundColor ?? Theme.of(context).primaryColorLight,
+              backgroundColor: backgroundColor == null
+                  ? Get.isDarkMode
+                      ? AppColors.pRIMARYCOLORLIGHT
+                      : Theme.of(context).primaryColorLight
+                  : backgroundColor,
               primary: textColor ?? Theme.of(context).accentColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(radius))),

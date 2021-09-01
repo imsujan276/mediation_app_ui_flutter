@@ -15,16 +15,34 @@ class MusicView extends GetView<MusicController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.musicbackground,
+      backgroundColor: Get.isDarkMode
+          ? Theme.of(context).primaryColor
+          : AppColors.musicbackground,
       body: SafeArea(
         child: Stack(
           children: [
             ClipPath(
               clipper: HalfCicle(),
               child: Container(
-                color: AppColors.RED.withOpacity(.1),
+                color: Get.isDarkMode
+                    ? AppColors.WHITE.withAlpha(20)
+                    : AppColors.RED.withOpacity(.1),
                 height: appService.sheight * .3,
                 width: appService.swidth * .4,
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              child: ClipPath(
+                clipper: HalfCicle(),
+                child: Container(
+                  color: Get.isDarkMode
+                      ? AppColors.WHITE.withAlpha(20)
+                      : AppColors.RED.withOpacity(.1),
+                  height: appService.sheight * .3,
+                  width: appService.swidth * .4,
+                ),
               ),
             ),
             Column(
@@ -51,17 +69,23 @@ class MusicView extends GetView<MusicController> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: AppColors.GREY,
+                            backgroundColor: Get.isDarkMode
+                                ? AppColors.GREY.withOpacity(.4)
+                                : AppColors.GREY,
                             child: Icon(
                               Icons.favorite_border_outlined,
+                              size: Constants.defaultFontSize + 5,
                               color: AppColors.WHITE,
                             ),
                           ),
                           WidthWidget(.008),
                           CircleAvatar(
-                            backgroundColor: AppColors.GREY,
+                            backgroundColor: Get.isDarkMode
+                                ? AppColors.GREY.withOpacity(.4)
+                                : AppColors.GREY,
                             child: Icon(
                               Icons.download,
+                              size: Constants.defaultFontSize + 5,
                               color: AppColors.WHITE,
                             ),
                           ),
@@ -79,7 +103,9 @@ class MusicView extends GetView<MusicController> {
                         children: [
                           HeaderText(
                             'Focus Attention',
-                            textColor: AppColors.textColor,
+                            textColor: Get.isDarkMode
+                                ? AppColors.WHITE
+                                : AppColors.textColor,
                           ),
                           NormalText('7 Day of clam'.toUpperCase()),
                         ],
@@ -89,19 +115,26 @@ class MusicView extends GetView<MusicController> {
                         children: [
                           Icon(Icons.replay_10_outlined,
                               size: Constants.defaultRadus * 1.5,
-                              color: AppColors.GREY),
+                              color: Get.isDarkMode
+                                  ? AppColors.WHITE
+                                  : AppColors.GREY),
                           CircleAvatar(
-                            backgroundColor:
-                                AppColors.textColor.withOpacity(.1),
+                            backgroundColor: Get.isDarkMode
+                                ? AppColors.WHITE.withOpacity(.3)
+                                : AppColors.textColor.withOpacity(.1),
                             radius: Constants.defaultRadus * 1.8,
                             child: CircleAvatar(
                                 radius: Constants.defaultRadus * 1.4,
-                                backgroundColor: AppColors.textColor,
+                                backgroundColor: Get.isDarkMode
+                                    ? AppColors.WHITE
+                                    : AppColors.textColor,
                                 child: Icon(Icons.pause)),
                           ),
                           Icon(Icons.forward_10_outlined,
                               size: Constants.defaultRadus * 1.5,
-                              color: AppColors.GREY),
+                              color: Get.isDarkMode
+                                  ? AppColors.WHITE
+                                  : AppColors.GREY),
                         ],
                       ),
                       Column(
@@ -115,12 +148,16 @@ class MusicView extends GetView<MusicController> {
                               children: [
                                 NormalText(
                                   '01:30',
-                                  color: AppColors.textColor,
+                                  color: Get.isDarkMode
+                                      ? AppColors.WHITE
+                                      : AppColors.textColor,
                                   isBold: true,
                                 ),
                                 NormalText(
                                   '45:00',
-                                  color: AppColors.textColor,
+                                  color: Get.isDarkMode
+                                      ? AppColors.WHITE
+                                      : AppColors.textColor,
                                   isBold: true,
                                 ),
                               ],
@@ -155,13 +192,16 @@ class _ProgressSliderState extends State<ProgressSlider> {
   Widget build(BuildContext context) {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
-        activeTrackColor: AppColors.textColor,
+        activeTrackColor:
+            Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
         inactiveTrackColor: AppColors.GREY,
         trackShape: RectangularSliderTrackShape(),
         trackHeight: 3.0,
-        thumbColor: AppColors.textColor,
+        thumbColor: Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
         thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8.0),
-        overlayColor: AppColors.textColor.withAlpha(20),
+        overlayColor: Get.isDarkMode
+            ? AppColors.WHITE.withAlpha(20)
+            : AppColors.textColor.withAlpha(20),
         overlayShape: RoundSliderOverlayShape(overlayRadius: 18.0),
       ),
       child: Padding(

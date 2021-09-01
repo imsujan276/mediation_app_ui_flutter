@@ -20,19 +20,22 @@ class MeditationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<HomeController>();
+    //final controller = Get.find<HomeController>();
     return Column(
       children: [
         HeightWidget(.08),
         HeaderText(
           Strings.meditation,
-          textColor: AppColors.textColor,
+          textColor: Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
         ),
         HeightWidget(.01),
-        NormalText(
-          'we can learn how to recognize when our minds are doing their normal everyday acrobatics.',
-          color: AppColors.pRIMARYCOLORLIGHT,
-          isCentered: true,
+        Padding(
+          padding: const EdgeInsets.all(Constants.defaultPadding / 2),
+          child: NormalText(
+            'we can learn how to recognize when our minds are doing their normal everyday acrobatics.',
+            color: AppColors.textLightColor,
+            isCentered: true,
+          ),
         ),
         HeightWidget(.02),
         MeditationMenuWIdget(),
@@ -136,7 +139,9 @@ class MeditationMenuWIdget extends StatelessWidget {
                                 Constants.defaultRadus / 2),
                             color: controller.mediMenuIndex.value == index
                                 ? AppColors.primaryCOLOR
-                                : AppColors.GREY),
+                                : Get.isDarkMode
+                                    ? AppColors.textColor.withOpacity(.5)
+                                    : AppColors.GREY),
                         padding: EdgeInsets.symmetric(
                             vertical: Constants.defaultPadding * 1.5,
                             horizontal: Constants.defaultPadding * 1.7),
@@ -152,8 +157,10 @@ class MeditationMenuWIdget extends StatelessWidget {
                     isBold:
                         controller.mediMenuIndex.value == index ? true : false,
                     color: controller.mediMenuIndex.value == index
-                        ? AppColors.primaryCOLOR
-                        : AppColors.GREY,
+                        ? Get.isDarkMode
+                            ? AppColors.WHITE
+                            : AppColors.textColor
+                        : AppColors.textLightColor,
                   )
                 ],
               )));

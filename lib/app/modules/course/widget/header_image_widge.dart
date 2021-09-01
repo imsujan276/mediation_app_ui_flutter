@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meditation/app/constant/asset_image.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
@@ -8,7 +7,9 @@ import 'package:meditation/app/modules/signin/widget/height_widget.dart';
 class HeaderImages extends StatelessWidget {
   const HeaderImages({
     Key? key,
+    required this.img,
   }) : super(key: key);
+  final String img;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class HeaderImages extends StatelessWidget {
           SizedBox(
             width: appService.swidth,
             child: Image.asset(
-              AppImage.sunbg,
+              img,
               fit: BoxFit.fitWidth,
             ),
           ),

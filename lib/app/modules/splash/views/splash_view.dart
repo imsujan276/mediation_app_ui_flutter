@@ -37,6 +37,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
+        color: Get.isDarkMode ? Theme.of(context).primaryColor : null,
         width: appService.swidth,
         height: appService.sheight,
         child: Column(
@@ -85,7 +86,11 @@ class Body extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    HeaderText(Strings.wearewhatwedo),
+                    HeaderText(
+                      Strings.wearewhatwedo,
+                      textColor: AppColors.textLightColor,
+                    ),
+                    //Get.isDarkMode ? Theme.of(context).accentColor : null
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: Constants.defaultPadding * 2),

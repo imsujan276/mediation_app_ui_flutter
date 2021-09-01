@@ -19,6 +19,7 @@ class RemainderView extends GetView<RemainderController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Get.isDarkMode ? Theme.of(context).primaryColor : null,
       body: SafeArea(
         child: Padding(
           padding:
@@ -46,8 +47,11 @@ class RemainderView extends GetView<RemainderController> {
                     is24HourMode: false,
                     normalTextStyle:
                         TextStyle(fontSize: 24, color: AppColors.GREY),
-                    highlightedTextStyle:
-                        TextStyle(fontSize: 24, color: AppColors.textColor),
+                    highlightedTextStyle: TextStyle(
+                        fontSize: 24,
+                        color: Get.isDarkMode
+                            ? Theme.of(context).accentColor
+                            : AppColors.textColor),
                     spacing: 50,
                     itemHeight: appService.sheight * .07,
                     isForce2Digits: true,
@@ -93,7 +97,7 @@ class RemainderView extends GetView<RemainderController> {
                   onPressed: () {
                     Get.to(() => HomeView(), binding: HomeBinding());
                   },
-                  backgroundColor: Theme.of(context).primaryColorLight,
+                  // backgroundColor: Theme.of(context).primaryColorLight,
                   textColor: AppColors.WHITE,
                 ),
               ),
@@ -102,7 +106,9 @@ class RemainderView extends GetView<RemainderController> {
                 child: NormalText(
                   Strings.nothanks,
                   isCentered: true,
-                  color: AppColors.textColor,
+                  color: Get.isDarkMode
+                      ? Theme.of(context).accentColor
+                      : AppColors.textColor,
                   isBold: true,
                 ),
               ),

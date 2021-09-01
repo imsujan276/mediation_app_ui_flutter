@@ -14,9 +14,13 @@ class BottomNavigation extends StatelessWidget {
     final controller = Get.find<HomeController>();
     return Obx(() => BottomNavigationBar(
           currentIndex: controller.currentTab.value,
-          selectedItemColor: AppColors.primaryCOLOR,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+          selectedItemColor:
+              Get.isDarkMode ? AppColors.WHITE : AppColors.primaryCOLOR,
           unselectedItemColor: AppColors.unselectNavColor,
-          backgroundColor: AppColors.WHITE,
+          backgroundColor:
+              Get.isDarkMode ? Theme.of(context).primaryColor : AppColors.WHITE,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
@@ -28,7 +32,7 @@ class BottomNavigation extends StatelessWidget {
                             ? AppColors.primaryCOLOR
                             : Colors.transparent,
                         borderRadius:
-                            BorderRadius.circular(Constants.defaultRadus / 2)),
+                            BorderRadius.circular(Constants.defaultRadus / 4)),
                     child: Icon(
                       Icons.home,
                       color: controller.currentTab.value == 0
@@ -44,7 +48,7 @@ class BottomNavigation extends StatelessWidget {
                             ? AppColors.primaryCOLOR
                             : Colors.transparent,
                         borderRadius:
-                            BorderRadius.circular(Constants.defaultRadus / 2)),
+                            BorderRadius.circular(Constants.defaultRadus / 4)),
                     child: Icon(
                       Icons.nightlight,
                       color: controller.currentTab.value == 1
@@ -60,7 +64,7 @@ class BottomNavigation extends StatelessWidget {
                             ? AppColors.primaryCOLOR
                             : Colors.transparent,
                         borderRadius:
-                            BorderRadius.circular(Constants.defaultRadus / 2)),
+                            BorderRadius.circular(Constants.defaultRadus / 4)),
                     child: Icon(
                       Icons.notifications,
                       color: controller.currentTab.value == 2
@@ -76,7 +80,7 @@ class BottomNavigation extends StatelessWidget {
                             ? AppColors.primaryCOLOR
                             : Colors.transparent,
                         borderRadius:
-                            BorderRadius.circular(Constants.defaultRadus / 2)),
+                            BorderRadius.circular(Constants.defaultRadus / 4)),
                     child: Icon(
                       Icons.headset,
                       color: controller.currentTab.value == 3
@@ -92,7 +96,7 @@ class BottomNavigation extends StatelessWidget {
                             ? AppColors.primaryCOLOR
                             : Colors.transparent,
                         borderRadius:
-                            BorderRadius.circular(Constants.defaultRadus / 2)),
+                            BorderRadius.circular(Constants.defaultRadus / 4)),
                     child: Icon(
                       Icons.person_outline,
                       color: controller.currentTab.value == 4
