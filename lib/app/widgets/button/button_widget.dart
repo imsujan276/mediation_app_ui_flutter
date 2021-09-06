@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
+import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
 
 /// custom button which take 4 parameters
@@ -48,6 +49,7 @@ class CustomRoundButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.radius = 20.0,
+    this.noheight = false,
   });
 
   final VoidCallback onPressed;
@@ -55,29 +57,36 @@ class CustomRoundButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final double radius;
+  final bool noheight;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: appService.swidth,
+      height: noheight ? null : appService.sheight * .07,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
       ),
-      padding: EdgeInsets.symmetric(horizontal: radius / 2),
+      padding: EdgeInsets.symmetric(horizontal: radius),
       //alignment: Alignment.center,
-      width: MediaQuery.of(context).size.width,
+
       child: TextButton(
           style: TextButton.styleFrom(
               backgroundColor: backgroundColor == null
                   ? Get.isDarkMode
                       ? AppColors.pRIMARYCOLORLIGHT
-                      : Theme.of(context).primaryColorLight
+                      : Theme.of(context).primaryColor
                   : backgroundColor,
               primary: textColor ?? Theme.of(context).accentColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(radius))),
-          child: Text(
-            label,
-          ),
+          child: appService.islandscape.value
+              ? FittedBox(
+                  child: Text(label),
+                )
+              : Text(
+                  label,
+                ),
           onPressed: onPressed),
     );
   }

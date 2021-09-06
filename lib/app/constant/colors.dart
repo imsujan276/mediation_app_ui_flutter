@@ -78,6 +78,9 @@ in medication v2 bg of stripe
   static const Color GREEN = Colors.green;
   static const Color GREY50 = Color(0xFFFAFAFA);
   static const Color RED = Color(0xFFFF0000);
+
+  static Color fbColor = HexColor("#7583CA");
+
   static Color textColor = HexColor("#3F414E");
   static Color textLightColor = HexColor("#A1A4B2");
   static Color borderColor = HexColor("#EBEAEC");

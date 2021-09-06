@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
-import 'package:meditation/app/modules/signin/widget/height_widget.dart';
+import 'package:meditation/app/modules/registration/signin/widget/height_widget.dart';
 import 'package:meditation/app/widgets/text/header_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
 
@@ -38,7 +38,7 @@ class TopicHeadAndMessage extends StatelessWidget {
             HeaderText(
               subtitle,
               isBold: isSecondbold,
-              fontSize: Constants.defaultFontSize * 1.6,
+              fontSize: Constants.defaultFontSize * 1.4,
               textColor: Get.isDarkMode
                   ? Theme.of(context).accentColor
                   : AppColors.textColor,

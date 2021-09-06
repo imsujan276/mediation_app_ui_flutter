@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meditation/app/constant/Strings.dart';
 import 'package:meditation/app/constant/asset_image.dart';
-import 'package:meditation/app/constant/colors.dart';
-import 'package:meditation/app/modules/signin/widget/height_widget.dart';
+import 'package:meditation/app/modules/registration/signin/widget/height_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
 
 class LogoTopHeader extends StatelessWidget {
@@ -23,7 +22,7 @@ class LogoTopHeader extends StatelessWidget {
         NormalText(
           Strings.slient,
           isBold: true,
-          color: AppColors.textColor,
+          color: textColor,
         ),
         WidthWidget(.01),
         Image.asset(
@@ -34,7 +33,7 @@ class LogoTopHeader extends StatelessWidget {
         NormalText(
           Strings.moon,
           isBold: true,
-          color: AppColors.textColor,
+          color: textColor,
         )
       ],
     );

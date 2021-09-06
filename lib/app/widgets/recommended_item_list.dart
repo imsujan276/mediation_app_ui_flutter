@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
-import 'package:meditation/app/modules/signin/widget/height_widget.dart';
+import 'package:meditation/app/modules/registration/signin/widget/height_widget.dart';
 import 'package:meditation/app/widgets/text/header_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
 

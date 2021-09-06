@@ -38,10 +38,13 @@ class ButtonWithImage extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: appService.swidth,
-        //  height: appService.sheight * .1,
+        height: appService.sheight * .07,
         padding: EdgeInsets.symmetric(
-            horizontal: horizontal ?? Constants.defaultPadding,
+            horizontal: horizontal ?? Constants.defaultPadding * 2,
             vertical: vertical ?? Constants.defaultPadding),
+        margin: EdgeInsets.symmetric(
+          horizontal: horizontal ?? Constants.defaultPadding,
+        ),
         decoration: BoxDecoration(
             color: color ?? Colors.transparent,
             borderRadius:
