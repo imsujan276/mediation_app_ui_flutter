@@ -8,9 +8,10 @@ class MusicController extends GetxController {
   late AudioPlayer audioPlayer;
   Duration duration = new Duration();
   Duration position = new Duration();
+  Duration musiclength = new Duration();
   Duration slider = new Duration(seconds: 0);
   double durationvalue = 0.0;
-  bool issongplaying = false;
+  RxBool playing = false.obs;
 
   @override
   void onInit() {

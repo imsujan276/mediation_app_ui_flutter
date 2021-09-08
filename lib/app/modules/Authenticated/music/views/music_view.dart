@@ -290,6 +290,6 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
 
   seektoSec(double sec) {
     Duration newPos = Duration(seconds: sec.toInt());
-    controller.advancedPlayer.seek(newPos);
+    // controller.advancedPlayer.seek(newPos);
   }
 }

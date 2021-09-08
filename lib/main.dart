@@ -9,8 +9,9 @@ import 'package:meditation/app/initalbinding.dart';
 
 import 'app/routes/app_pages.dart';
 
-void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(GetMaterialApp(
     title: Strings.appName,
     debugShowCheckedModeBanner: false,
