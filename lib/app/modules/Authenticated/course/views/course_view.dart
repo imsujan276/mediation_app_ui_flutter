@@ -28,6 +28,9 @@ class _CourseViewState extends State<CourseView> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     tabController = new TabController(length: tabList.length, vsync: this);
+    tabController.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -85,6 +88,7 @@ class _CourseViewState extends State<CourseView> with TickerProviderStateMixin {
                               width: 2.0, color: AppColors.primaryCOLOR),
                           insets: EdgeInsets.symmetric(horizontal: 35.0),
                         ),
+                        labelColor: AppColors.pRIMARYCOLORLIGHT,
                         labelStyle: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.w500), //For Selected tab
@@ -98,11 +102,20 @@ class _CourseViewState extends State<CourseView> with TickerProviderStateMixin {
                                   right: Constants.defaultmargin * 2),
                               child: NormalText(
                                 Strings.malevoice.toUpperCase(),
+                                isBold: tabController.index == 0 ? true : false,
+                                color: tabController.index == 0
+                                    ? AppColors.primaryCOLOR
+                                    : AppColors.textLightColor,
                               )),
                           NormalText(
                             Strings.femalevoice.toUpperCase(),
+                            isBold: tabController.index == 1 ? true : false,
+                            color: tabController.index == 1
+                                ? AppColors.primaryCOLOR
+                                : AppColors.textLightColor,
                           )
                         ]),
+                    HeightWidget(.01),
                     Expanded(
                         child: TabBarView(controller: tabController, children: [
                       MaleVoiceWIdget(),

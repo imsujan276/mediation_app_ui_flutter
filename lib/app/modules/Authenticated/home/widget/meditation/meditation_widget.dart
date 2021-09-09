@@ -9,6 +9,7 @@ import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/data/model/meditation_odel.dart';
 import 'package:meditation/app/data/repositories/topic_data_repositories.dart';
 import 'package:meditation/app/modules/Authenticated/home/controllers/home_controller.dart';
+import 'package:meditation/app/modules/Authenticated/home/widget/sleep/sleep_widget.dart';
 import 'package:meditation/app/modules/Authenticated/home/widget/strip_ads_banner.dart';
 import 'package:meditation/app/modules/registration/signin/widget/height_widget.dart';
 import 'package:meditation/app/routes/app_pages.dart';
@@ -75,7 +76,7 @@ class MeditationView extends StatelessWidget {
                           flex: 7,
                           child: Image.asset(
                             topics[index].image,
-                            fit: BoxFit.fitHeight,
+                            fit: BoxFit.fill,
                           ),
                         ),
                         Container(
@@ -100,75 +101,12 @@ class MeditationView extends StatelessWidget {
                   ),
                 )),
             staggeredTileBuilder: (int index) =>
-                new StaggeredTile.count(2, index.isEven ? 2.3 : 2),
-            mainAxisSpacing: 4.0,
-            crossAxisSpacing: 4.0,
+                new StaggeredTile.count(2, index.isEven ? 2 : 2.3),
+            mainAxisSpacing: 16.0,
+            crossAxisSpacing: 16.0,
           ),
         )
       ],
-    );
-  }
-}
-
-class MeditationMenuWIdget extends StatelessWidget {
-  const MeditationMenuWIdget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final controller = Get.find<HomeController>();
-    return Container(
-      width: appService.swidth,
-      height: appService.sheight * .14,
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          MeditationModel e = controller.mediMenuList[index];
-          return Obx(() => Container(
-              margin: EdgeInsets.all(Constants.defaultPadding),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        controller.mediMenuIndex.value = index;
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                                Constants.defaultRadus / 2),
-                            color: controller.mediMenuIndex.value == index
-                                ? AppColors.primaryCOLOR
-                                : Get.isDarkMode
-                                    ? AppColors.textColor.withOpacity(.5)
-                                    : AppColors.GREY),
-                        padding: EdgeInsets.symmetric(
-                            vertical: Constants.defaultPadding * 1.5,
-                            horizontal: Constants.defaultPadding * 1.7),
-                        child: Icon(
-                          e.icons,
-                          color: AppColors.WHITE,
-                        ),
-                      ),
-                    ),
-                  ),
-                  NormalText(
-                    e.title,
-                    isBold:
-                        controller.mediMenuIndex.value == index ? true : false,
-                    color: controller.mediMenuIndex.value == index
-                        ? Get.isDarkMode
-                            ? AppColors.WHITE
-                            : AppColors.textColor
-                        : AppColors.textLightColor,
-                  )
-                ],
-              )));
-        },
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemCount: controller.mediMenuList.length,
-      ),
     );
   }
 }

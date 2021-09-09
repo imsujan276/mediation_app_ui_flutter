@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meditation/app/constant/Strings.dart';
 import 'package:meditation/app/constant/constants.dart';
+import 'package:meditation/app/core/middleware/middleware_authentication.dart';
 import 'package:meditation/app/modules/registration/signin/widget/height_widget.dart';
 import 'package:meditation/app/modules/registration/signin/widget/sign_in_up_widget.dart';
 import 'package:meditation/app/modules/welcome/views/welcome_view.dart';
@@ -62,6 +63,7 @@ class SignupView extends GetView<SignupController> {
                 CustomRoundButton(
                   label: Strings.getstarted.toUpperCase(),
                   onPressed: () {
+                    AuthMiddelware.instance.isAuthenticated = true;
                     Get.to(WelcomeView());
                   },
                 ),

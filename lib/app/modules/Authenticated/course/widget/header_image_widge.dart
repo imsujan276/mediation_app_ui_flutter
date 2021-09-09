@@ -14,24 +14,29 @@ class HeaderImages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: appService.sheight * .4,
+      height: appService.sheight * .38,
       width: appService.swidth,
       child: Stack(
         children: [
+          Container(
+            color: AppColors.primaryCOLOR,
+            width: appService.swidth,
+            height: appService.sheight * .1,
+          ),
           SizedBox(
             width: appService.swidth,
             child: Image.asset(
               img,
-              fit: BoxFit.fitWidth,
+              fit: BoxFit.fill,
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(
                 horizontal: Constants.defaultPadding + 10,
                 vertical: Constants.defaultPadding * 2),
-            margin: const EdgeInsets.only(
-              top: Constants.defaultPadding + 10,
-            ),
+            // margin: const EdgeInsets.only(
+            //   top: Constants.defaultPadding + 10,
+            // ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

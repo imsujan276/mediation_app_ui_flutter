@@ -27,12 +27,7 @@ class HomeView extends GetView<HomeController> {
       child: Scaffold(
           backgroundColor:
               Get.isDarkMode ? Theme.of(context).primaryColor : null,
-          body: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: Constants.defaultPadding),
-            child:
-                Obx(() => controller.bodyWidget[controller.currentTab.value]),
-          ),
+          body: Obx(() => controller.bodyWidget[controller.currentTab.value]),
           bottomNavigationBar: BottomNavigation()),
     );
   }
@@ -50,7 +45,7 @@ class DashboardWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeightWidget(.09),
+        HeightWidget(.08),
         LogoTopHeader(),
         TopicHeadAndMessage(
           maintitle: Strings.goodmorning + ',Asfar',

@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 import 'package:meditation/app/routes/app_pages.dart';
 
 class AuthMiddelware extends GetMiddleware {
+  static final AuthMiddelware instance = Get.find();
   @override
   int? get priority => 2;
-  bool isAuthenticated = false;
+  bool isAuthenticated = true;
 
   @override
   RouteSettings? redirect(String? route) {

@@ -6,6 +6,8 @@ import 'package:meditation/app/data/repositories/male_voice_repositories.dart';
 class CourseController extends GetxController {
   List<VoiceModel> maleVoiceList = [];
   List<VoiceModel> femaleVoiceList = [];
+  //have selected male or female voice
+  RxInt voiceIndex = 0.obs;
 
   @override
   void onInit() {

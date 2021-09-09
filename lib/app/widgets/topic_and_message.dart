@@ -43,7 +43,7 @@ class TopicHeadAndMessage extends StatelessWidget {
                   ? Theme.of(context).accentColor
                   : AppColors.textColor,
             ),
-          HeightWidget(.02),
+          HeightWidget(.01),
           NormalText(
             message,
             color: AppColors.textLightColor,

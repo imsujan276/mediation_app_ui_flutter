@@ -1,8 +1,5 @@
-import 'dart:io';
-
-import 'package:audioplayers/audioplayers.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
@@ -126,12 +123,6 @@ class MusicView extends GetView<MusicController> {
   }
 }
 
-typedef OnError = void Function(Exception exception);
-
-const kUrl1 = 'https://luan.xyz/files/audio/ambient_c_motion.mp3';
-const kUrl2 = 'https://luan.xyz/files/audio/nasa_on_a_mission.mp3';
-const kUrl3 = 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1xtra_mf_p';
-
 class MusicProgressBar extends StatefulWidget {
   const MusicProgressBar({
     Key? key,
@@ -143,18 +134,11 @@ class MusicProgressBar extends StatefulWidget {
 
 class _MusicProgressBarState extends State<MusicProgressBar> {
   final controller = Get.find<MusicController>();
-  AudioCache audioCache = AudioCache();
-  AudioPlayer advancedPlayer = AudioPlayer();
-  String? localFilePath;
-  String? localAudioCacheURI;
+  double _value = 10;
 
   @override
   void initState() {
     super.initState();
-
-    if (Platform.isIOS) {
-      audioCache.fixedPlayer?.notificationService.startHeadlessService();
-    }
   }
 
   @override
@@ -174,22 +158,34 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
               radius: Constants.defaultRadus * 1.8,
               child: Obx(
                 () => InkWell(
-                  onTap: () async {
-                    controller.playing.value = !controller.playing.value;
-                    final file =
-                        await audioCache.loadAsFile('assets/audio/time.mp3');
-                    final bytes = await file.readAsBytes();
-                    audioCache.playBytes(bytes);
-                  },
-                  child: CircleAvatar(
+                    onTap: () async {
+                      controller.playing.value = !controller.playing.value;
+
+                      ///play 3 songs in parallel
+                      ///
+                      if (controller.playing.value)
+                        AssetsAudioPlayer.newPlayer()
+                            .open(Audio("assets/audio/time.mp3"));
+                    },
+                    child: CircleAvatar(
                       radius: Constants.defaultRadus * 1.4,
                       backgroundColor: Get.isDarkMode
                           ? AppColors.WHITE
                           : AppColors.textColor,
                       child: controller.playing.value
-                          ? Icon(Icons.pause)
-                          : Icon(Icons.play_arrow)),
-                ),
+                          ? Icon(
+                              Icons.pause,
+                              size: Constants.defaultFontSize * 2,
+                              color: Get.isDarkMode
+                                  ? AppColors.textColor
+                                  : AppColors.WHITE,
+                            )
+                          : Icon(Icons.play_arrow,
+                              size: Constants.defaultFontSize * 2,
+                              color: Get.isDarkMode
+                                  ? AppColors.textColor
+                                  : AppColors.WHITE),
+                    )),
               ),
             ),
             Icon(Icons.forward_10_outlined,
@@ -213,26 +209,19 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
             overlayShape: RoundSliderOverlayShape(overlayRadius: 18.0),
           ),
           child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: Constants.defaultPadding / 1.2),
-              child: Slider.adaptive(
-                  value: controller.position.inSeconds.toDouble(),
-                  max: controller.musiclength.inSeconds.toDouble(),
-                  onChanged: (value) {
-                    seektoSec(value);
-                  })
-
-              // Slider(
-              //   max: 100,
-              //   min: 0,
-              //   value: _value,
-              //   onChanged: (value) {
-              //     setState(() {
-              //       _value = value;
-              //     });
-              //   },
-              // ),
-              ),
+            padding: const EdgeInsets.symmetric(
+                horizontal: Constants.defaultPadding / 1.2),
+            child: Slider(
+              max: 100,
+              min: 0,
+              value: _value,
+              onChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              },
+            ),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
@@ -255,41 +244,5 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
         )
       ],
     );
-  }
-
-  Future<int> _getDuration() async {
-    final uri = await audioCache.load('audio2.mp3');
-    await advancedPlayer.setUrl(uri.toString());
-    return Future.delayed(
-      const Duration(seconds: 2),
-      () => advancedPlayer.getDuration(),
-    );
-  }
-
-  FutureBuilder<int> getLocalFileDuration() {
-    return FutureBuilder<int>(
-      future: _getDuration(),
-      builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.none:
-            return const Text('No Connection...');
-          case ConnectionState.active:
-          case ConnectionState.waiting:
-            return const Text('Awaiting result...');
-          case ConnectionState.done:
-            if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
-            }
-            return Text(
-              'audio2.mp3 duration is: ${Duration(milliseconds: snapshot.data!)}',
-            );
-        }
-      },
-    );
-  }
-
-  seektoSec(double sec) {
-    Duration newPos = Duration(seconds: sec.toInt());
-    // controller.advancedPlayer.seek(newPos);
   }
 }

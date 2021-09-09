@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
+import 'package:meditation/app/routes/app_pages.dart';
 import 'package:meditation/app/widgets/text/header_widget.dart';
 import 'package:meditation/app/widgets/text/normal_widget.dart';
 
@@ -39,10 +41,16 @@ class StripBannerWidget extends StatelessWidget {
       // padding: EdgeInsets.all(Constants.defaultPadding),
       child: Stack(
         children: [
-          ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(Constants.defaultRadus / 3)),
-              child: Image.asset(backgroundImage)),
+          SizedBox(
+            width: appService.swidth,
+            child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(Constants.defaultRadus / 3)),
+                child: Image.asset(
+                  backgroundImage,
+                  fit: BoxFit.fill,
+                )),
+          ),
           Container(
             padding: const EdgeInsets.all(Constants.defaultPadding * 1.2),
             child: Row(
@@ -55,9 +63,14 @@ class StripBannerWidget extends StatelessWidget {
                       HeaderText(title, textColor: textColor),
                       NormalText(subtitle + ' ' + info, color: textColor),
                     ]),
-                CircleAvatar(
-                  backgroundColor: buttonColor,
-                  child: Icon(Icons.play_arrow, color: iconColor),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(Routes.MUSIC);
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: buttonColor,
+                    child: Icon(Icons.play_arrow, color: iconColor),
+                  ),
                 )
               ],
             ),

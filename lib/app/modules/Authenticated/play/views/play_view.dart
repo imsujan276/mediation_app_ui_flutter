@@ -40,12 +40,13 @@ class PlayView extends GetView<PlayController> {
                           ? AppColors.WHITE
                           : AppColors.textColor,
                     ),
-                    HeightWidget(.01),
+                    HeightWidget(.015),
                     NormalText(
                       '45 MIN . Sleep Music'.toUpperCase(),
                       fontSize: appService.sheight * .02,
+                      isBold: true,
                     ),
-                    HeightWidget(.01),
+                    HeightWidget(.015),
                     NormalText(Strings.course_message),
                     HeightWidget(.03),
                     FavioritAndListening(),

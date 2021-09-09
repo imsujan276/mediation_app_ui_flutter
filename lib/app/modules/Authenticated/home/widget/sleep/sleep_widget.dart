@@ -45,17 +45,19 @@ class Sleep extends StatelessWidget {
           ),
           HeightWidget(.01),
           Padding(
-            padding: const EdgeInsets.all(Constants.defaultPadding / 2),
+            padding: const EdgeInsets.symmetric(
+                horizontal: Constants.defaultPadding * 3,
+                vertical: Constants.defaultPadding / 2),
             child: NormalText(
-              'we can learn how to recognize when our minds are doing their normal everyday acrobatics.',
-              color: Get.isDarkMode
-                  ? AppColors.WHITE
-                  : AppColors.pRIMARYCOLORLIGHT,
+              'Soothing bedtime stories to help you fall into a deep and natural sleep',
+              color:
+                  Get.isDarkMode ? AppColors.WHITE : AppColors.textLightColor,
               isCentered: true,
             ),
           ),
           HeightWidget(.02),
           MeditationMenuWIdget(),
+          HeightWidget(.02),
           BannerImage(),
           HeightWidget(.02),
           GridviewWIdget()
@@ -98,6 +100,7 @@ class BannerImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<HomeController>();
     return Container(
       color: Get.isDarkMode ? Theme.of(context).primaryColor : null,
       height: MediaQuery.of(context).size.height * .25,
@@ -137,9 +140,11 @@ class BannerImage extends StatelessWidget {
                 ),
                 HeightWidget(.0021),
                 Padding(
-                  padding: const EdgeInsets.all(Constants.defaultPadding / 2),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: Constants.defaultPadding * 2,
+                      vertical: Constants.defaultPadding / 2),
                   child: NormalText(
-                    'we can learn how to recognize when our minds are doing their normal everyday acrobatics.',
+                    'Non-stop 8- hour mixes of our most popular sleep audio',
                     color: AppColors.WHITE,
                     isCentered: true,
                     maxline: 2,
@@ -148,9 +153,14 @@ class BannerImage extends StatelessWidget {
                 HeightWidget(.01),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .4,
+                  height: appService.sheight * .06,
                   child: CustomRoundButton(
                     label: 'Start',
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.sleepingMenuClick.value = true;
+                      // else
+                      //   controller.sleepingMenuClick.value = false;
+                    },
                     backgroundColor: AppColors.WHITE,
                     textColor: AppColors.textColor,
                   ),
@@ -188,15 +198,11 @@ class MeditationMenuWIdget extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         controller.mediMenuIndex.value = index;
-                        if (index == 3)
-                          controller.sleepingMenuClick.value = true;
-                        else
-                          controller.sleepingMenuClick.value = false;
                       },
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(
-                                Constants.defaultRadus / 2),
+                                Constants.defaultRadus / 1.2),
                             color: controller.mediMenuIndex.value == index
                                 ? AppColors.primaryCOLOR
                                 : Get.isDarkMode
@@ -212,6 +218,7 @@ class MeditationMenuWIdget extends StatelessWidget {
                       ),
                     ),
                   ),
+                  HeightWidget(.005),
                   NormalText(
                     e.title,
                     isBold:
@@ -219,7 +226,7 @@ class MeditationMenuWIdget extends StatelessWidget {
                     color: controller.mediMenuIndex.value == index
                         ? Get.isDarkMode
                             ? AppColors.WHITE
-                            : AppColors.primaryCOLOR
+                            : AppColors.textColor
                         : AppColors.GREY,
                   )
                 ],

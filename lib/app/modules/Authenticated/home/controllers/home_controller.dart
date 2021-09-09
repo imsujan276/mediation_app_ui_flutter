@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/data/model/meditation_odel.dart';
 import 'package:meditation/app/data/model/recommended_model.dart';
 import 'package:meditation/app/data/repositories/recommend_repositiories.dart';
 import 'package:meditation/app/modules/Authenticated/home/views/home_view.dart';
+import 'package:meditation/app/modules/Authenticated/home/widget/Account/account_widget.dart';
 import 'package:meditation/app/modules/Authenticated/home/widget/meditation/meditation_widget.dart';
+import 'package:meditation/app/modules/Authenticated/home/widget/music/music_widget.dart';
 import 'package:meditation/app/modules/Authenticated/home/widget/sleep/sleep_widget.dart';
 import 'package:meditation/app/modules/Authenticated/home/widget/tabItems.dart';
 
@@ -31,11 +34,20 @@ class HomeController extends GetxController {
   ];
 
   List<Widget> bodyWidget = [
-    SingleChildScrollView(child: DashboardWidget()),
-    SleepView(),
-    MeditationView(),
-    Container(),
-    Container(),
+    Padding(
+        padding:
+            const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+        child: SingleChildScrollView(child: DashboardWidget())),
+    Padding(
+        padding:
+            const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+        child: SleepView()),
+    Padding(
+        padding:
+            const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+        child: MeditationView()),
+    MusicWidget(),
+    AccountWidgt(),
   ];
 
   RxInt currentTab = 0.obs;

@@ -7,7 +7,8 @@ import 'package:meditation/app/modules/registration/signin/widget/height_widget.
 import 'package:meditation/app/widgets/text/header_widget.dart';
 
 class SleepingView extends StatelessWidget {
-  const SleepingView({Key? key}) : super(key: key);
+  const SleepingView({Key? key, this.istab = false}) : super(key: key);
+  final bool istab;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +20,19 @@ class SleepingView extends StatelessWidget {
           HeightWidget(.06),
           Row(
             children: [
-              CircleAvatar(
-                backgroundColor:
-                    Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
-                child: BackButton(
-                  onPressed: () {
-                    controller.sleepingMenuClick.value = false;
-                  },
+              if (!istab)
+                CircleAvatar(
+                  backgroundColor:
+                      Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
+                  child: BackButton(
+                    onPressed: () {
+                      controller.sleepingMenuClick.value = false;
+                    },
+                  ),
                 ),
-              ),
-              WidthWidget(.05),
-              HeaderText('Sleep Music',
+              if (!istab) WidthWidget(.05),
+              if (istab) WidthWidget(.01),
+              HeaderText(istab ? 'Music' : 'Sleep Music',
                   textColor:
                       Get.isDarkMode ? AppColors.WHITE : AppColors.textColor)
             ],
