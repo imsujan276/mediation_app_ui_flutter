@@ -73,6 +73,7 @@ class PlayView extends GetView<PlayController> {
                         RelatedListItems()
                       ],
                     )),
+                 HeightWidget(.01),
                     CustomRoundButton(
                       label: 'Play'.toUpperCase(),
                       onPressed: () {
@@ -80,7 +81,8 @@ class PlayView extends GetView<PlayController> {
                       },
                       textColor: AppColors.WHITE,
                       backgroundColor: AppColors.buttonBackgroundColor,
-                    )
+                    ),
+                    HeightWidget(.01),
                   ],
                 ),
               ),
