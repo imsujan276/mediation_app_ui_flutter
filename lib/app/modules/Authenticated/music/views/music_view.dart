@@ -192,8 +192,7 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
             ),
             InkWell(
               onTap: () {
-                if (controller.musicposition.value + 10 <
-                    controller.musiclength.value) {
+                if (controller.musicposition.value + 10 < controller.length) {
                   controller.musicposition.value += 10;
                   controller.assetsAudioPlayer.seek(Duration(
                       seconds: controller.musicposition.value.toInt()));
@@ -238,9 +237,8 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
 
                   return Slider(
                     min: 0.0,
-                    max: controller.musiclength.value,
-                    value: controller.musiclength.value ==
-                            controller.musicposition.value
+                    max: controller.length,
+                    value: controller.length == controller.musicposition.value
                         ? 0.0
                         : controller.musicposition.value,
                     onChanged: (double value) {
@@ -264,7 +262,10 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
                     controller.musicposition.value =
                         duration.inSeconds.toDouble();
                     return NormalText(
-                      duration.inSeconds.toDouble().toString(),
+                      duration.inMinutes.toStringAsFixed(0) +
+                          ':' +
+                          (duration.inSeconds - (duration.inMinutes * 60))
+                              .toStringAsFixed(0),
                       color: Get.isDarkMode
                           ? AppColors.WHITE
                           : AppColors.textColor,
@@ -278,7 +279,7 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
               //       isBold: true,
               //     )),
               Obx(() => NormalText(
-                    controller.musiclength.value.toStringAsFixed(1),
+                    controller.musiclength.value.toString(),
                     color:
                         Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
                     isBold: true,

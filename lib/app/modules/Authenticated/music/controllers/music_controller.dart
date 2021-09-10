@@ -6,8 +6,9 @@ class MusicController extends GetxController {
   //create a new player
   AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
 
-  RxDouble musiclength = 100.0.obs;
+  RxString musiclength = '00:00'.obs;
   RxDouble musicposition = 0.0.obs;
+  double length = 0.0;
 
   @override
   void onInit() {
@@ -24,8 +25,11 @@ class MusicController extends GetxController {
 
     //Retrieve directly the current played asset
     final PlayingAudio p = assetsAudioPlayer.current.value!.audio;
-    musiclength.value = p.duration.inSeconds.toDouble();
 
+    musiclength.value = p.duration.inMinutes.toStringAsFixed(0) +
+        ':' +
+        (p.duration.inSeconds - (p.duration.inMinutes * 60)).toStringAsFixed(0);
+    length = p.duration.inSeconds.toDouble();
     // double val = 0;
 
     assetsAudioPlayer.playlistAudioFinished.listen((Playing pl) {
