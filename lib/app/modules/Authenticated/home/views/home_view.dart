@@ -13,6 +13,8 @@ import 'package:meditation/app/modules/Authenticated/home/widget/recommended.dar
 import 'package:meditation/app/modules/Authenticated/home/widget/strip_ads_banner.dart';
 import 'package:meditation/app/modules/registration/signin/widget/height_widget.dart';
 import 'package:meditation/app/modules/splash/widget/logo_header_with_text.dart';
+import 'package:meditation/app/widgets/button/button_widget.dart';
+import 'package:meditation/app/widgets/text/normal_widget.dart';
 import 'package:meditation/app/widgets/topic_and_message.dart';
 
 import '../controllers/home_controller.dart';
@@ -22,7 +24,34 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        return false;
+        bool val = await showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: NormalText('Warning'),
+                content:
+                    NormalText('Are you sure! do you want to close this app?'),
+                actions: [
+                  CustomRoundButton(
+                    label: 'Cancel',
+                    onPressed: () {
+                      Navigator.of(context).pop(false);
+                    },
+                    backgroundColor: AppColors.RED,
+                  ),
+                  HeightWidget(.01),
+                  CustomRoundButton(
+                    label: 'Yes',
+                    onPressed: () {
+                      Navigator.of(context).pop(true);
+                    },
+                    backgroundColor: AppColors.GREEN,
+                  ),
+                ],
+              );
+            });
+
+        return val;
       },
       child: Scaffold(
           backgroundColor:

@@ -134,7 +134,6 @@ class MusicProgressBar extends StatefulWidget {
 
 class _MusicProgressBarState extends State<MusicProgressBar> {
   final controller = Get.find<MusicController>();
-  double _value = 10;
 
   @override
   void initState() {
@@ -148,9 +147,18 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.replay_10_outlined,
-                size: Constants.defaultRadus * 1.5,
-                color: Get.isDarkMode ? AppColors.WHITE : AppColors.GREY),
+            InkWell(
+              onTap: () {
+                if (controller.musicposition.value - 10 > 0) {
+                  controller.musicposition.value -= 10;
+                  controller.assetsAudioPlayer.seek(Duration(
+                      seconds: controller.musicposition.value.toInt()));
+                }
+              },
+              child: Icon(Icons.replay_10_outlined,
+                  size: Constants.defaultRadus * 1.5,
+                  color: Get.isDarkMode ? AppColors.WHITE : AppColors.GREY),
+            ),
             CircleAvatar(
               backgroundColor: Get.isDarkMode
                   ? AppColors.WHITE.withOpacity(.3)
@@ -159,13 +167,7 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
               child: Obx(
                 () => InkWell(
                     onTap: () async {
-                      controller.playing.value = !controller.playing.value;
-
-                      ///play 3 songs in parallel
-                      ///
-                      if (controller.playing.value)
-                        AssetsAudioPlayer.newPlayer()
-                            .open(Audio("assets/audio/time.mp3"));
+                      controller.playorpause();
                     },
                     child: CircleAvatar(
                       radius: Constants.defaultRadus * 1.4,
@@ -188,9 +190,19 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
                     )),
               ),
             ),
-            Icon(Icons.forward_10_outlined,
-                size: Constants.defaultRadus * 1.5,
-                color: Get.isDarkMode ? AppColors.WHITE : AppColors.GREY),
+            InkWell(
+              onTap: () {
+                if (controller.musicposition.value + 10 <
+                    controller.musiclength.value) {
+                  controller.musicposition.value += 10;
+                  controller.assetsAudioPlayer.seek(Duration(
+                      seconds: controller.musicposition.value.toInt()));
+                }
+              },
+              child: Icon(Icons.forward_10_outlined,
+                  size: Constants.defaultRadus * 1.5,
+                  color: Get.isDarkMode ? AppColors.WHITE : AppColors.GREY),
+            ),
           ],
         ),
         HeightWidget(.05),
@@ -211,16 +223,33 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
           child: Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: Constants.defaultPadding / 1.2),
-            child: Slider(
-              max: 100,
-              min: 0,
-              value: _value,
-              onChanged: (value) {
-                setState(() {
-                  _value = value;
-                });
-              },
-            ),
+            child: StreamBuilder<Duration>(
+                stream: controller.assetsAudioPlayer.currentPosition,
+                builder:
+                    (BuildContext context, AsyncSnapshot<Duration> snapshot) {
+                  if (!snapshot.hasData) {
+                    return Slider(
+                      value: 0.0,
+                      onChanged: (double value) => null,
+                      activeColor: Colors.transparent,
+                      inactiveColor: Colors.transparent,
+                    );
+                  }
+
+                  return Slider(
+                    min: 0.0,
+                    max: controller.musiclength.value,
+                    value: controller.musiclength.value ==
+                            controller.musicposition.value
+                        ? 0.0
+                        : controller.musicposition.value,
+                    onChanged: (double value) {
+                      controller.assetsAudioPlayer
+                          .seek(Duration(seconds: value.toInt()));
+                      value = value;
+                    },
+                  );
+                }),
           ),
         ),
         Padding(
@@ -229,20 +258,40 @@ class _MusicProgressBarState extends State<MusicProgressBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              NormalText(
-                '01:30',
-                color: Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
-                isBold: true,
-              ),
-              NormalText(
-                '45:00',
-                color: Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
-                isBold: true,
-              ),
+              PlayerBuilder.currentPosition(
+                  player: controller.assetsAudioPlayer,
+                  builder: (context, duration) {
+                    controller.musicposition.value =
+                        duration.inSeconds.toDouble();
+                    return NormalText(
+                      duration.inSeconds.toDouble().toString(),
+                      color: Get.isDarkMode
+                          ? AppColors.WHITE
+                          : AppColors.textColor,
+                      isBold: true,
+                    );
+                  }),
+              // Obx(() => NormalText(
+              //       controller.musicposition.value.toStringAsFixed(1),
+              //       color:
+              //           Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
+              //       isBold: true,
+              //     )),
+              Obx(() => NormalText(
+                    controller.musiclength.value.toStringAsFixed(1),
+                    color:
+                        Get.isDarkMode ? AppColors.WHITE : AppColors.textColor,
+                    isBold: true,
+                  )),
             ],
           ),
         )
       ],
     );
+  }
+
+  void seekToSecond(int second) {
+    Duration newDuration = Duration(seconds: second);
+    controller.assetsAudioPlayer.seek(newDuration);
   }
 }

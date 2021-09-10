@@ -6,6 +6,8 @@ import 'package:meditation/app/constant/colors.dart';
 import 'package:meditation/app/constant/constants.dart';
 import 'package:meditation/app/constant/controller_service.dart';
 import 'package:meditation/app/core/middleware/middleware_authentication.dart';
+import 'package:meditation/app/modules/Authenticated/home/bindings/home_binding.dart';
+import 'package:meditation/app/modules/Authenticated/home/views/home_view.dart';
 import 'package:meditation/app/modules/registration/signin/widget/height_widget.dart';
 import 'package:meditation/app/modules/registration/signin/widget/sign_in_up_widget.dart';
 import 'package:meditation/app/routes/app_pages.dart';
@@ -55,8 +57,9 @@ class SigninView extends GetView<SigninController> {
                 CustomRoundButton(
                   label: Strings.signin.toUpperCase(),
                   onPressed: () {
-                    AuthMiddelware.instance.isAuthenticated = true;
-                    Get.to(SigninView());
+                    // AuthMiddelware.instance.isAuthenticated = true;
+                    // Get.to(HomeView()());
+                    Get.offAll(HomeView(), binding: HomeBinding());
                   },
                 ),
                 HeightWidget(
